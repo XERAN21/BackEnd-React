@@ -9,6 +9,8 @@ public class Order {
 	public Integer id;
 	public Integer userId;
 	public String creditNumber;
+	public String lastName;
+	public String firstName;
 	public String postNumber;
 	public String address;
 	public String telNumber;
