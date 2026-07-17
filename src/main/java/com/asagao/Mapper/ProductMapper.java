@@ -24,5 +24,5 @@ public interface ProductMapper {
 	
 	
 	
-	
+	Product findById(int id);
 }

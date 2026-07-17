@@ -8,18 +8,23 @@ import com.asagao.Domain.Product;
 import com.asagao.Repository.Interface.ProductRepository;
 import com.asagao.Service.Interface.ProductService;
 
-import lombok.RequiredArgsConstructor;
-
 @Service
-@RequiredArgsConstructor
+
 public class ProductServiceImpl implements ProductService{
 
-	private final ProductRepository ProductRepository;
+	private final ProductRepository productRepository;
 
     @Override
     public List<Product> getProducts() {
-        return ProductRepository.findAll();
+        return productRepository.findAll();
     }
+
+	
+	
+	
+
+	
+
 	
 	
 	
@@ -30,7 +35,27 @@ public class ProductServiceImpl implements ProductService{
 	
 	
 	
-	
+	public ProductServiceImpl(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public Product getById(int id) {
+		return productRepository.findById(id);
+	}
 	
 	
 }
