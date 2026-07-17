@@ -20,6 +20,11 @@ public class DBProductRepository implements ProductRepository{
     public List<Product> findAll() {
 		return ProductMapper.findAll();
     }
+
+	@Override
+	public Product findById(int id) {
+		return ProductMapper.findById(id);
+	}
 	
 	
 	
