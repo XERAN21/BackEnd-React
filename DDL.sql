@@ -65,11 +65,6 @@ create table orders_detail(
     orders_id int not null,
     product_id int not null,
     amount int,
-    last_name varchar(100) not null,
-    first_name varchar(100) not null,
-    post_number varchar(10) not null,
-    address varchar(255) not null,
-    tel_number varchar(30) not null,
     created_at datetime,
     updated_at datetime,
 
