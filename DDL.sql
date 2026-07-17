@@ -1,3 +1,4 @@
+-- DB作成
 drop database if exists shopping;
 create database shopping;
 
