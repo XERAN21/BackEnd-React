@@ -21,9 +21,9 @@ create table user(
     role tinyint not null,
     last_name varchar(100) not null,
     first_name varchar(100) not null,
-    post_number varchar(10) not null,
-    address varchar(255) not null,
-    tel_number varchar(30) not null,
+    post_number varchar(10),
+    address varchar(255),
+    tel_number varchar(30),
     created_at datetime,
     updated_at datetime
 );
@@ -65,6 +65,11 @@ create table orders_detail(
     orders_id int not null,
     product_id int not null,
     amount int,
+    last_name varchar(100) not null,
+    first_name varchar(100) not null,
+    post_number varchar(10) not null,
+    address varchar(255) not null,
+    tel_number varchar(30) not null,
     created_at datetime,
     updated_at datetime,
 
@@ -121,4 +126,4 @@ insert into user(email, password, role, last_name, first_name, post_number, addr
 values
 ('sample1@kronos.jp','pass01', 2, '山田', '太郎', '5470033', '大阪市平野区平野西4丁目', '09033332222', now(), now()),
 ('sample2@kronos.jp','pass02', 2, '井上', '次郎', '5470025', '大阪市阿倍野区阿倍野西4丁目', '09044442232', now(), now()),
-('sample3@kronos.jp','pass03', 1, '二宮', '秀雄', '0690831', '北海道江別市野幌若葉町', '09077776666', now(), now());
+('sample3@kronos.jp','pass03', 1, '二宮', '秀雄', null, null, null, now(), now());
