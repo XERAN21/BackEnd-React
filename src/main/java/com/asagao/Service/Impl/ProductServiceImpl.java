@@ -3,6 +3,7 @@ package com.asagao.Service.Impl;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.asagao.Domain.Product;
 import com.asagao.Repository.Interface.ProductRepository;
@@ -72,6 +73,7 @@ public class ProductServiceImpl implements ProductService{
 
 
 	@Override
+	@Transactional
 	public int proceedPayment() {
 		// TODO 自動生成されたメソッド・スタブ
 		return 0;

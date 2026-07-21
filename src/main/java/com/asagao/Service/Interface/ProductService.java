@@ -23,4 +23,17 @@ public interface ProductService {
 	
 	
 	Product getById(int id);
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	int proceedPayment();	
 }
