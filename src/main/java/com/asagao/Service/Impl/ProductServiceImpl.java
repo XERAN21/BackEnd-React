@@ -9,7 +9,6 @@ import com.asagao.Repository.Interface.ProductRepository;
 import com.asagao.Service.Interface.ProductService;
 
 @Service
-
 public class ProductServiceImpl implements ProductService{
 
 	private final ProductRepository productRepository;
@@ -51,11 +50,49 @@ public class ProductServiceImpl implements ProductService{
 
 
 
-
 	@Override
 	public Product getById(int id) {
 		return productRepository.findById(id);
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	@Override
+	public int proceedPayment() {
+		// TODO 自動生成されたメソッド・スタブ
+		return 0;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 }
