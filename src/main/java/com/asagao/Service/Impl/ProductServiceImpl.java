@@ -71,11 +71,7 @@ public class ProductServiceImpl implements ProductService{
 
 
 
-	@Override
-	public int proceedPayment() {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
-	}
+	
 
 
 
