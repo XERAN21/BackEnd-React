@@ -3,6 +3,7 @@ package com.asagao.Repository.DB;
 import org.springframework.stereotype.Repository;
 
 import com.asagao.Domain.Order;
+import com.asagao.Mapper.OrderMapper;
 import com.asagao.Repository.Interface.OrderRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -11,11 +12,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DBOrderRepository implements OrderRepository {
 
-	private final OrderRepository orderRepository;
+	private final OrderMapper orderMapper;
 	
 	@Override
 	public int create(Order order) {
-		return orderRepository.create(order);
+		return orderMapper.create(order);
 	}
 
 }

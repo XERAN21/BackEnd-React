@@ -3,6 +3,7 @@ package com.asagao.Repository.DB;
 import org.springframework.stereotype.Repository;
 
 import com.asagao.Domain.OrderDetail;
+import com.asagao.Mapper.OrderDetailMapper;
 import com.asagao.Repository.Interface.OrderDetailRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -11,11 +12,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class DBOrderDetailRepository implements OrderDetailRepository {
 
-	private final OrderDetailRepository orderDetailRepository;
+	private final  OrderDetailMapper orderDetailMapper;
 	
 	@Override
 	public int create(OrderDetail orderDetail) {
-		return orderDetailRepository.create(orderDetail);
+		return orderDetailMapper.create(orderDetail);
 	}
 
 }
