@@ -12,7 +12,7 @@ public class Product {
 	private Integer price;
 	private String image_url;
 	private Integer color;
-	private Integer delete_flg;
-	private Date created_at;
-	private Date updated_at;
+	private Integer deleteFlg;
+	private Date createdAt;
+	private Date updatedAt;
 }
