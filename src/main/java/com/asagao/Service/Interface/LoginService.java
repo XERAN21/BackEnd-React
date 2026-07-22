@@ -1,5 +1,8 @@
 package com.asagao.Service.Interface;
 
-public class LoginService {
+import com.asagao.Domain.User;
 
+public interface LoginService {
+
+	User authenticate(String email, String password);
 }
