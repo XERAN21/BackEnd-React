@@ -12,4 +12,20 @@ public interface ProductMapper {
 	List<Product> findAll();
 	
 	Product findById(int id);
+	
+//	void addToCart(Product product);
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

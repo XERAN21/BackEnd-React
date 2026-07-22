@@ -25,6 +25,12 @@ public class DBProductRepository implements ProductRepository{
 	public Product findById(int id) {
 		return ProductMapper.findById(id);
 	}
+
+	@Override
+	public void addToCart(Product product) {
+//		Mapper.addToCart(product);
+		
+	}
 	
 	
 	
