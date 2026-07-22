@@ -8,6 +8,9 @@ import com.asagao.Domain.User;
 @Mapper
 public interface UserMapper {
 
+
+	User findById(int id);
+
 	//メールアドレス,パスワードをもとに取得
 	User findByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 

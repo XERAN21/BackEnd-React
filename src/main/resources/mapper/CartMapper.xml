@@ -22,4 +22,8 @@
 	from cart inner join product on cart.product_id = product.id
 	where cart.user_id = #{userId}
   	</select>
+  	<delete id="delete">
+  		delete from cart
+  		where user_id = #{userId}
+  	</delete>
   </mapper>

@@ -1,11 +1,13 @@
 package com.asagao.Domain;
 
+
 import java.time.LocalDate;
 
 import lombok.Data;
 
 @Data
 public class User {
+
 	/** ユーザー内部ID */
 	private Integer id;
     /** メールアドレス */

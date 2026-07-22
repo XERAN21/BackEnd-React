@@ -24,4 +24,9 @@ public class DBUserRepository implements UserRepository {
 		return userMapper.save(user);
 	}
 
+
+	@Override
+	public User findById(int id) {
+		return userMapper.findById(id);
+	}
 }
