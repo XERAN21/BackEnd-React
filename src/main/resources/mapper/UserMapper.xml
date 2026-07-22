@@ -27,7 +27,7 @@
     </select>
 
 
-  <select id="findByEmailAndPassword" resultMap="User">
+  <select id="findByEmailAndPassword" resultMap="UserResultMap">
   	SELECT
   	  *
   	From
