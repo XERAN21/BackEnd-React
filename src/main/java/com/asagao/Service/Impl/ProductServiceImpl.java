@@ -50,8 +50,8 @@ public class ProductServiceImpl implements ProductService{
 	
 
 	@Override
-	public void addToCart(Product product) {
-		productRepository.addToCart(product);
+	public void addToCart(Cart cart) {
+		cartRepository.addToCart(cart);
 	}
 
 

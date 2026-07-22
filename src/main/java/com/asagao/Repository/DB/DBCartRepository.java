@@ -18,6 +18,12 @@ public class DBCartRepository implements CartRepository {
 	public Cart[] findAll(int userId) {
 		return cartMapper.findAll(userId);
 	}
+	
+	@Override
+	public void addToCart(Cart cart) {
+		cartMapper.addToCart(cart);
+		
+	}
 
 	
 	
