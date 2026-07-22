@@ -9,20 +9,7 @@ import com.asagao.Domain.Product;
 @Mapper
 public interface ProductMapper {
 
-	 List<Product> findAll();
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	List<Product> findAll();
 	
 	Product findById(int id);
 	

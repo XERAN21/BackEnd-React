@@ -9,10 +9,14 @@ import com.asagao.Domain.Product;
 public interface ProductService {
 
 	public List<Product> getProducts();
-		
+
 	Product getById(int id);
+
 	
 	void addToCart(Cart cart);
+
+
+	void addToCart(Product product);
 
 	int proceedPayment();
 	

@@ -19,58 +19,17 @@ public class ProductServiceImpl implements ProductService{
 
 	private final ProductRepository productRepository;
 	private final CartRepository cartRepository;
-	
-    @Override
-    public List<Product> getProducts() {
-        return productRepository.findAll();
-    }
-    
+
+	@Override
+	public List<Product> getProducts() {
+		return productRepository.findAll();
+	}
+
 	@Override
 	public Product getById(int id) {
 		return productRepository.findById(id);
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//	@Override
-//	public int proceedPayment() {
-//		// TODO 自動生成されたメソッド・スタブ
-//		return 0;
-//	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 	@Override
 	public void addToCart(Cart cart) {
 		cartRepository.addToCart(cart);
@@ -80,6 +39,7 @@ public class ProductServiceImpl implements ProductService{
 		// TODO 自動生成されたメソッド・スタブ
 		return 0;
 	}
+
 
 	@Override
 	public Cart[] getCartItems(int userId) {

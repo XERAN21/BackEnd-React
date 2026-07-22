@@ -14,6 +14,7 @@ public class Order {
 	public String postNumber;
 	public String address;
 	public String telNumber;
+	public Integer sumPrice;
 	public LocalDateTime createdAt;
 	public LocalDateTime updatedAt;
 }
