@@ -1,9 +1,25 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
- <mapper namespace="com.asagao.mapper.OrderMapper">
- 
- 	<resultMap id="OrderResultMap"
- 		type="com.example.
+
+<mapper namespace="com.asagao.Mapper.OrderMapper">
+	<resultMap type="com.asagao.Domain.Order" id="Order">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="credit_number" property="creditNumber" />
+		<result column="last_name" property="lastName" />
+		<result column="first_name" property="firstName" />
+		<result column="post_number" property="postNumber" />
+		<result column="address" property="address" />
+		<result column="tel_number" property="telNumber" />
+		<result column="created_at" property="createdAt" />
+		<result column="updated_at" property="updatedAt" />
+	</resultMap>
+	<insert id="create" useGeneratedKeys="true" keyProperty="Id">
+		INSERT INTO
+		ORDERS(USER_ID,CREDIT_NUMBER,POST_NUMBER,ADDRESS,TEL_NUMBER,CREATED_AT,UPDATED_AT)
+		VALUES
+		(#{userId},#{creditNumber},#{postNumber},#{address},#{telNumber},#{createdAt},#{updatedAt})
+	</insert>
+</mapper>
