@@ -66,4 +66,9 @@ public class ProductServiceImpl implements ProductService{
 		return cartRepository.findAll(userId);
 	}
 
+	@Override
+	public void clearCartItems(int userId) {
+		cartRepository.delete(userId);
+	}
+
 }

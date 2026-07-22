@@ -17,5 +17,10 @@ public interface ProductService {
 	int proceedPayment();
 	
 	Cart[] getCartItems(int userId);
+	
+	
+	
+	
+	void clearCartItems(int userId);
 
 }

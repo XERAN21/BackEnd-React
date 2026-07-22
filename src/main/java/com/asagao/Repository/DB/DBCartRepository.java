@@ -19,4 +19,20 @@ public class DBCartRepository implements CartRepository {
 		return cartMapper.findAll(userId);
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public int delete(int userId) {
+		return cartMapper.delete(userId);
+	}
+
 }

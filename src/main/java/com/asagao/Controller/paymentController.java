@@ -33,7 +33,7 @@ public class paymentController {
 	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
 	      }
 	      
-	      return productService.getCartItems(0);
+	      return productService.getCartItems(user.getId());
 	}
 	
 	@PostMapping
@@ -46,4 +46,6 @@ public class paymentController {
 	      
 	      productService.proceedPayment();
 	}
+	
+	
 }
