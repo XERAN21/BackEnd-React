@@ -28,7 +28,7 @@ public class DBProductRepository implements ProductRepository{
 
 	@Override
 	public void addToCart(Product product) {
-		ProductMapper.addToCart(product);
+//		Mapper.addToCart(product);
 		
 	}
 	
