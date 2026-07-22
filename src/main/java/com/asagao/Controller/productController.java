@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.asagao.Domain.Cart;
+import com.asagao.Domain.CartDom;
 import com.asagao.Domain.Product;
 import com.asagao.Domain.User;
 import com.asagao.Repository.Interface.ProductRepository;
@@ -68,8 +69,12 @@ public class productController {
 	}
 	
 	@PostMapping("/addToCart")
-	public void addToCart(@RequestBody Cart cart,HttpSession session) {
-		User user = (User) session.getAttribute("loginUser");
+	public void addToCart(@RequestBody CartDom cartDom,
+			HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		Cart cart=new Cart();
+		cart.setAmount(cartDom.getAmount());
+		cart.setProductId(cartDom.getProductId());
 		cart.setUserId(user.getId());
 		productService.addToCart(cart);
 	}

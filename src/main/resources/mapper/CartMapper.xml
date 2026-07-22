@@ -16,9 +16,10 @@
   		select * from cart
   		where user_id = #{userId}
   	</select>
-  	<insert id="addToCart" useGeneratedKeys="true">
+  	<insert id="addToCart" keyProperty="id"
+  	useGeneratedKeys="true">
   	insert into cart
   	(user_id,product_id,amount)
-  	values(#{userId},#{productId},#{amount)}
+  	values(#{userId},#{productId},#{amount})
   	</insert>
   </mapper>
