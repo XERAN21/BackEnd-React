@@ -3,9 +3,9 @@ package com.asagao.Service.Impl;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.asagao.Domain.Cart;
+import com.asagao.Domain.Order;
 import com.asagao.Domain.Product;
 import com.asagao.Repository.Interface.CartRepository;
 import com.asagao.Repository.Interface.ProductRepository;
@@ -53,12 +53,6 @@ public class ProductServiceImpl implements ProductService{
 	public void addToCart(Product product) {
 		productRepository.addToCart(product);
 	}
-	@Transactional
-	public int proceedPayment() {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
-	}
-
 
 
 	@Override
@@ -69,6 +63,17 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public void clearCartItems(int userId) {
 		cartRepository.delete(userId);
+	}
+
+	@Override
+	public int addOrder(Order order) {
+		return 0;
+	}
+
+	@Override
+	public int addOrderDetail(Cart[] carts) {
+		// TODO 自動生成されたメソッド・スタブ
+		return 0;
 	}
 
 }

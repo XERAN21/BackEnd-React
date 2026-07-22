@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.asagao.Domain.Cart;
-import com.asagao.Domain.Product;
+import com.asagao.Domain.Order;
 import com.asagao.Domain.User;
 import com.asagao.Service.Interface.ProductService;
 
@@ -36,16 +36,26 @@ public class paymentController {
 	      return productService.getCartItems(user.getId());
 	}
 	
-	@PostMapping
+	@PostMapping("/order")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void create(@RequestBody Product[] products, HttpSession session) {
+	public void createOrder(@RequestBody Order order, HttpSession session) {
 		User user = (User)session.getAttribute("user");
 	      if (user == null) {
 	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
 	      }
 	      
-	      productService.proceedPayment();
+	      productService.addOrder(order);
 	}
 	
+	@PostMapping("/detail")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void createOrderDetail(@RequestBody Cart[] carts, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+	      if (user == null) {
+	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+	      }
+	      
+	      productService.addOrderDetail(carts);
+	}
 	
 }
