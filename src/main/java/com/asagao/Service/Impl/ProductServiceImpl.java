@@ -30,6 +30,25 @@ public class ProductServiceImpl implements ProductService{
 		return productRepository.findById(id);
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
 	@Override
 	public void addToCart(Cart cart) {
 		cartRepository.addToCart(cart);
@@ -39,6 +58,7 @@ public class ProductServiceImpl implements ProductService{
 		// TODO 自動生成されたメソッド・スタブ
 		return 0;
 	}
+
 
 
 	@Override

@@ -6,13 +6,19 @@ import com.asagao.Domain.User;
 import com.asagao.Repository.Interface.UserRepository;
 import com.asagao.Service.Interface.UserService;
 
-import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService{
 
 	private final UserRepository userRepository;
+
+	public UserServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+	@Override
+	public User findById(int id) {
+		return userRepository.findById(id);
+	}
 	
 	@Override
 	public int saveUser(User user) {
