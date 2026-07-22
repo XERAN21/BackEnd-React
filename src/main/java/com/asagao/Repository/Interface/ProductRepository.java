@@ -24,6 +24,10 @@ public interface ProductRepository {
 	Product findById(int id);
 
 	
+	void addToCart(Product product);
+
+
+	
 	
 	
 	

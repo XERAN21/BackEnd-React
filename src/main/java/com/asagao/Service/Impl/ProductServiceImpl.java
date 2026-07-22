@@ -29,8 +29,52 @@ public class ProductServiceImpl implements ProductService{
 	public Product getById(int id) {
 		return productRepository.findById(id);
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	@Override
+//	public int proceedPayment() {
+//		// TODO 自動生成されたメソッド・スタブ
+//		return 0;
+//	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	@Override
+	public void addToCart(Product product) {
+		productRepository.addToCart(product);
+	}
 	@Transactional
 	public int proceedPayment() {
 		// TODO 自動生成されたメソッド・スタブ

@@ -25,6 +25,9 @@ public interface ProductMapper {
 	
 	
 	Product findById(int id);
+	
+//	void addToCart(Product product);
+
 
 	
 	

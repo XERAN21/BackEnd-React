@@ -11,6 +11,8 @@ public interface ProductService {
 	public List<Product> getProducts();
 		
 	Product getById(int id);
+	
+	void addToCart(Product product);
 
 	int proceedPayment();
 	
