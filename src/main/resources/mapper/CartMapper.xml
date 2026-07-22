@@ -9,12 +9,18 @@
   		<result column="user_id" property="userId"/>
   		<result column="product_id" property="productId"/>
   		<result column="amount" property="amount"/>
+  		<result column="price" property="price" />
+  		<result column="name" property="productName" />
   		<result column="created_at" property="createdAt" />
 		<result column="updated_at" property="updatedAt" />
   	</resultMap>
   	<select id="findAll" resultMap="Cart">
-  		select * from cart
-  		where user_id = #{userId}
+	select
+		cart.*,
+		product.price,
+		product.name
+	from cart inner join product on cart.product_id = product.id
+	where cart.user_id = #{userId}
   	</select>
   	<delete id="delete">
   		delete from cart

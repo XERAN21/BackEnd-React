@@ -10,6 +10,8 @@ public class Cart {
 	private Integer userId;
 	private Integer productId;
 	private Integer amount;
+	private Integer price;
+	private String productName;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 }
