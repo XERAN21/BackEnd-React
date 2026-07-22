@@ -16,7 +16,6 @@ public interface ProductService {
 	void addToCart(Cart cart);
 
 
-	void addToCart(Product product);
 
 	int proceedPayment();
 	
