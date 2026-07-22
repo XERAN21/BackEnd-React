@@ -37,27 +37,6 @@ public class loginController {
 	    }
 	    session.setAttribute("user", user);
 	    return user;
-			
-//			@RequestBody Map<String, String> request,
-//			HttpSession session) {
-//		// Spring Bootが自動でJSONを分解し、Mapに入れる
-//		String email = request.get("email");
-//		String password = request.get("password");
-//		
-//		// サービス層のログイン判定を呼び出し
-//		User user = loginService.authenticate(email, password);
-//		
-//		if (user == null) {
-//	        throw new ResponseStatusException(
-//	                HttpStatus.UNAUTHORIZED, 
-//	                "Invalid login");
-//	    }
-//		// セッションにログインユーザーの情報を保存（ブラウザにセッションCookieが送られます）
-//	    session.setAttribute("user", user);
-//	    System.out.println(user);
-//	    // 成功時はUserオブジェクトをそのまま返す（自動的にJSONに変換されてReactに届きます）
-//	    return user;
-		
 	}
 	
 	@GetMapping("/me")
