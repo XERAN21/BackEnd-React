@@ -4,18 +4,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.asagao.Domain.User;
 import com.asagao.Service.Interface.UserService;
-
 @RestController
 @RequestMapping("/api/auth")
+
 public class userController {
 
     private final UserService userService;
@@ -48,5 +52,16 @@ public class userController {
 
         return ResponseEntity.ok(response);
     }
-    
+   
+
+	//ユーザー登録
+	@PostMapping("/new")
+	@ResponseStatus(HttpStatus.CREATED)
+	public int saveUser(
+			@Valid @RequestBody User user,
+			HttpSession session) {
+		
+		int result = userService.saveUser(user);
+		return result;
+	}
 }

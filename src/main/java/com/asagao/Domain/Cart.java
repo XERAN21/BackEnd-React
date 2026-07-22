@@ -7,8 +7,8 @@ import lombok.Data;
 @Data
 public class Cart {
 	private Integer id;
-	private Integer orderId;
 	private Integer userId;
+	private Integer productId;
 	private Integer amount;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;

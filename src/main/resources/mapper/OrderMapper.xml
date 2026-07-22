@@ -22,4 +22,6 @@
 		VALUES
 		(#{userId},#{creditNumber},#{postNumber},#{address},#{telNumber},#{createdAt},#{updatedAt})
 	</insert>
+
 </mapper>
+

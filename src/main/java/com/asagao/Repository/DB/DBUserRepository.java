@@ -10,12 +10,23 @@ import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public class DBUserRepository implements UserRepository{
-	
-	private final UserMapper UserMapper;
+public class DBUserRepository implements UserRepository {
+
+	private final UserMapper userMapper;
+
+	@Override
+	public User findByEmailAndPassword(String email, String password) {
+		return userMapper.findByEmailAndPassword(email, password);
+	}
+
+	@Override
+	public int save(User user) {
+		return userMapper.save(user);
+	}
+
 
 	@Override
 	public User findById(int id) {
-		return UserMapper.findById(id);
+		return userMapper.findById(id);
 	}
 }

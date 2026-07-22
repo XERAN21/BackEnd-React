@@ -15,4 +15,5 @@ public class Product {
 	private Integer deleteFlg;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
+
 }

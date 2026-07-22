@@ -6,6 +6,7 @@ import com.asagao.Domain.User;
 import com.asagao.Repository.Interface.UserRepository;
 import com.asagao.Service.Interface.UserService;
 
+
 @Service
 public class UserServiceImpl implements UserService{
 
@@ -18,4 +19,10 @@ public class UserServiceImpl implements UserService{
 	public User findById(int id) {
 		return userRepository.findById(id);
 	}
+	
+	@Override
+	public int saveUser(User user) {
+		return userRepository.save(user);
+	}
+
 }

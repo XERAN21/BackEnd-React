@@ -72,6 +72,7 @@ create table orders(
     post_number varchar(10) not null,
     address varchar(255) not null,
     tel_number varchar(30) not null,
+    sum_price int not null,
     created_at timestamp not null default current_timestamp,
     updated_at timestamp not null default current_timestamp on update current_timestamp,
 

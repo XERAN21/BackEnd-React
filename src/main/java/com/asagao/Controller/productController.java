@@ -1,13 +1,13 @@
 package com.asagao.Controller;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
-public class ProductController {
+public class productController {
 
 	private final ProductService productService;
 
@@ -33,7 +33,7 @@ public class ProductController {
 	      
 	      return productService.getProducts();
 	  }
-
+	
 	
 	
 	
@@ -65,15 +65,9 @@ public class ProductController {
 		return productRepository.findById(id);
 	}
 	
-	@GetMapping("/initCart")
-	public Product initCart(@RequestBody Product product,HttpSession session) {
-		List<Product> cart=(List<Product>) session.getAttribute("cart");
-		if (cart == null) {
-            cart = new ArrayList<>();
-        }
-        cart.add(product);
-        session.setAttribute("cart", cart);
-        return product;
+	@PostMapping("/addToCart")
+	public void addToCart(@RequestBody Product product,HttpSession session) {
+        productRepository.addToCart(product);
 	}
 	
 }
