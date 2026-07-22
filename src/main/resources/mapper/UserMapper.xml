@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asagao.Mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="com.asagao.Domain.User">
+        <id property="id" column="id" />
+        <result property="email" column="email" />
+        <result property="password" column="password" />
+        <result property="role" column="role" />
+        <result property="lastName" column="last_name" />
+        <result property="firstName" column="first_name" />
+        <result property="postNumber" column="post_number" />
+        <result property="address" column="address" />
+        <result property="telNumber" column="tel_number" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+    </resultMap>
+
+    <select id="findById" resultMap="UserResultMap">
+        SELECT 
+           *
+        FROM users 
+           WHERE id = #{id}
+    </select>
+
+</mapper>

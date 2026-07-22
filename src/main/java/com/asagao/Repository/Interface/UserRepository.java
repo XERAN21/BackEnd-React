@@ -1,5 +1,8 @@
 package com.asagao.Repository.Interface;
 
-public class UserRepository {
+import com.asagao.Domain.User;
 
+public interface UserRepository {
+
+	User findById(int id);
 }

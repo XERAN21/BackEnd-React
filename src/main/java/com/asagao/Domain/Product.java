@@ -1,6 +1,6 @@
 package com.asagao.Domain;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 
@@ -13,6 +13,6 @@ public class Product {
 	private String image_url;
 	private Integer color;
 	private Integer deleteFlg;
-	private Date createdAt;
-	private Date updatedAt;
+	private LocalDateTime createdAt;
+	private LocalDateTime updatedAt;
 }
