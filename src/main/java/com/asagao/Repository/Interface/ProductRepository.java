@@ -1,7 +1,12 @@
 package com.asagao.Repository.Interface;
 
-public interface ProductRepository {
+import java.util.List;
 
+import com.asagao.Domain.Product;
+
+public interface ProductRepository {
+    
+	List<Product> findAll();
 	
 	
 	
@@ -16,6 +21,5 @@ public interface ProductRepository {
 	
 	
 	
-	
-	
+	Product findById(int id);
 }
