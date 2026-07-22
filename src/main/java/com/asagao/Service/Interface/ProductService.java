@@ -23,4 +23,6 @@ public interface ProductService {
 	
 	
 	Product getById(int id);
+	
+	void addToCart(Product product);
 }

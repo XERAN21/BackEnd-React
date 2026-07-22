@@ -44,6 +44,24 @@ create table product(
         references color(id) on update cascade on delete cascade
 );
 
+-- カート
+create table cart(
+	id int auto_increment primary key,
+	user_id int not null,
+	product_id int not null,
+	amount int not null default 1,
+    created_at timestamp not null default current_timestamp,
+    updated_at timestamp not null default current_timestamp on update current_timestamp,
+    
+    constraint FK_CART_USERID foreign key(user_id)
+    	references user(id) on update cascade on delete cascade,
+    
+    constraint FK_CART_PID foreign key(product_id)
+    	references product(id) on update cascade on delete cascade,
+    	
+    constraint UNQ_USER_PRODUCT unique (user_id, product_id)
+);
+
 -- 注文
 create table orders(
     id int auto_increment primary key,

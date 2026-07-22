@@ -71,10 +71,32 @@ public class ProductServiceImpl implements ProductService{
 
 
 
+//	@Override
+//	public int proceedPayment() {
+//		// TODO 自動生成されたメソッド・スタブ
+//		return 0;
+//	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	@Override
-	public int proceedPayment() {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
+	public void addToCart(Product product) {
+		productRepository.addToCart(product);
+		
 	}
 
 
