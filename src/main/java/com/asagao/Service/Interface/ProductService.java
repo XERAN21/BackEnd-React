@@ -10,4 +10,5 @@ public interface ProductService {
 	public List<Product> getProducts();
 	
 	Product getById(int id);
-}
+	
+	public int proceedPayment();}
