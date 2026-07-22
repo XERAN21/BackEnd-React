@@ -7,4 +7,6 @@ import com.asagao.Domain.Cart;
 @Mapper
 public interface CartMapper {
 	Cart[] findAll(int userId);
+	
+	void addToCart(Cart cart);
 }

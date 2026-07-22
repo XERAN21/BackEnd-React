@@ -12,7 +12,7 @@ public interface ProductService {
 		
 	Product getById(int id);
 	
-	void addToCart(Product product);
+	void addToCart(Cart cart);
 
 	int proceedPayment();
 	

@@ -16,4 +16,9 @@
   		select * from cart
   		where user_id = #{userId}
   	</select>
+  	<insert id="addToCart" useGeneratedKeys="true">
+  	insert into cart
+  	(user_id,product_id,amount)
+  	values(#{userId},#{productId},#{amount)}
+  	</insert>
   </mapper>
