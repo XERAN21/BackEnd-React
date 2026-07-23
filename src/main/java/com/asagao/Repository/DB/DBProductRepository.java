@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.asagao.Domain.Product;
+import com.asagao.Mapper.CartMapper;
 import com.asagao.Mapper.ProductMapper;
 import com.asagao.Repository.Interface.ProductRepository;
 
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 public class DBProductRepository implements ProductRepository{
 
 	private final ProductMapper ProductMapper;
+	private final CartMapper cartMapper;
 	
 	@Override
     public List<Product> findAll() {
@@ -26,11 +28,7 @@ public class DBProductRepository implements ProductRepository{
 		return ProductMapper.findById(id);
 	}
 
-	@Override
-	public void addToCart(Product product) {
-//		Mapper.addToCart(product);
-		
-	}
+	
 	
 	
 	

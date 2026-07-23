@@ -4,4 +4,16 @@ import com.asagao.Domain.Cart;
 
 public interface CartRepository {
 	Cart[] findAll(int userId);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	int delete(int userId);
+
+	void addToCart(Cart cart);
 }

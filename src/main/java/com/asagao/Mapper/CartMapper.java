@@ -7,4 +7,8 @@ import com.asagao.Domain.Cart;
 @Mapper
 public interface CartMapper {
 	Cart[] findAll(int userId);
+	
+	int delete(int userId);
+	
+	void addToCart(Cart cart);
 }
