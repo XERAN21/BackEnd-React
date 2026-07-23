@@ -28,15 +28,19 @@ public class DBProductRepository implements ProductRepository{
 		return ProductMapper.findById(id);
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	@Override
+    public int delete(int id) {
+        return ProductMapper.delete(id);
+    }
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
