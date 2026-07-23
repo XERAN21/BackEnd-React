@@ -1,5 +1,7 @@
 package com.asagao.Mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.asagao.Domain.OrderDetail;
@@ -8,5 +10,5 @@ import com.asagao.Domain.OrderDetail;
 public interface OrderDetailMapper {
 	int create(OrderDetail orderDetail);
 	
-	OrderDetail getOderDetails(int orderId);
+	List<OrderDetail> getOderDetails(int orderId);
 }

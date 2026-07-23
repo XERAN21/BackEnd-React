@@ -67,7 +67,7 @@ public class ProductServiceImpl implements ProductService{
 		order.setCreatedAt(LocalDateTime.now());
 		order.setUpdatedAt(LocalDateTime.now());
 		orderRepository.create(order);
-		System.out.println(order);
+		System.out.println(order.getSumPrice());
 		
 		for (Cart cart: carts) {
 			OrderDetail orderDetail = new OrderDetail();
