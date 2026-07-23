@@ -21,6 +21,8 @@ public interface ProductService {
 	
 	Cart[] getCartItems(int userId);
 	
-	int countByProductId(Cart cart);
+	Cart countByProductId(Cart cart);
+	
+	void update(Cart cart);
 
 }

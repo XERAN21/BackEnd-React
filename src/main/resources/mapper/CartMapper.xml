@@ -2,41 +2,48 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
-  <mapper namespace="com.asagao.Mapper.CartMapper">
-  	<resultMap type="com.asagao.Domain.Cart" id="Cart">
-  		<id column="id" property="id"/>
-  		<result column="user_id" property="userId"/>
-  		<result column="product_id" property="productId"/>
-  		<result column="amount" property="amount"/>
-  		<result column="price" property="price" />
-  		<result column="name" property="productName" />
-  		<result column="created_at" property="createdAt" />
+
+<mapper namespace="com.asagao.Mapper.CartMapper">
+	<resultMap type="com.asagao.Domain.Cart" id="Cart">
+		<id column="id" property="id" />
+		<result column="user_id" property="userId" />
+		<result column="product_id" property="productId" />
+		<result column="amount" property="amount" />
+		<result column="price" property="price" />
+		<result column="name" property="productName" />
+		<result column="created_at" property="createdAt" />
 		<result column="updated_at" property="updatedAt" />
-  	</resultMap>
-  	<select id="findAll" resultMap="Cart">
-	select
+	</resultMap>
+	<select id="findAll" resultMap="Cart">
+		select
 		cart.*,
 		product.price,
 		product.name
-	from cart inner join product on cart.product_id = product.id
-	where cart.user_id = #{userId}
-  	</select>
-  	<insert id="addToCart" keyProperty="id"
-  	useGeneratedKeys="true">
-  	insert into cart
-  	(user_id,product_id,amount)
-  	values(#{userId},#{productId},#{amount})
-  	</insert>
-  	<delete id="delete">
-  		delete from cart
-  		where user_id = #{userId}
-  	</delete>
-  	<select id="countByProductId" resultType="Int">
-	select count(*)
-	from cart
-	where cart.user_id = #{userId} and
-	cart.product_id = #{productId}
-  	</select>
-  	
-  </mapper>
+		from cart inner join product on cart.product_id = product.id
+		where cart.user_id = #{userId}
+	</select>
+	<insert id="addToCart" keyProperty="id" useGeneratedKeys="true">
+		insert into cart
+		(user_id,product_id,amount)
+		values(#{userId},#{productId},#{amount})
+	</insert>
+	<delete id="delete">
+		delete from cart
+		where user_id = #{userId}
+	</delete>
+	<select id="countByProductId" resultMap="Cart">
+		select *
+		from cart
+		where cart.user_id = #{userId} and
+		cart.product_id = #{productId}
+	</select>
+
+	<update id="update">
+		update cart
+		set
+		amount = #{amount}
+		where
+		product_id = #{productId} and user_id = #{userId}
+	</update>
+
+</mapper>

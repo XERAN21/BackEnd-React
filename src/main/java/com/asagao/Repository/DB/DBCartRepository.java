@@ -26,8 +26,14 @@ public class DBCartRepository implements CartRepository {
 	}
 
 	@Override
-	public int countByProductId(Cart cart) {
+	public Cart countByProductId(Cart cart) {
 		return cartMapper.countByProductId(cart);
+	}
+
+	@Override
+	public void update(Cart cart) {
+		cartMapper.update(cart);
+		
 	}
 
 }

@@ -10,5 +10,7 @@ public interface CartMapper {
 	
 	void addToCart(Cart cart);
 	
-	int countByProductId(Cart cart);
+	Cart countByProductId(Cart cart);
+	
+	void update(Cart cart);
 }

@@ -5,5 +5,6 @@ import com.asagao.Domain.Cart;
 public interface CartRepository {
 	Cart[] findAll(int userId);
 	void addToCart(Cart cart);
-	int countByProductId(Cart cart);
+	Cart countByProductId(Cart cart);
+	void update(Cart cart);
 }
