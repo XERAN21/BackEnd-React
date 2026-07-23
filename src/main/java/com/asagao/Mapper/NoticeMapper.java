@@ -7,4 +7,6 @@ import com.asagao.Domain.Notice;
 @Mapper
 public interface NoticeMapper {
 	Notice[] findAll();
+	
+	Notice findById(int noticeId);
 }

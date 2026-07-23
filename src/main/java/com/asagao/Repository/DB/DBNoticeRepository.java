@@ -19,4 +19,11 @@ public class DBNoticeRepository implements NoticeRepository {
 		return noticeMapper.findAll();
 	}
 
+	@Override
+	public Notice findById(int noticeId) {
+		return noticeMapper.findById(noticeId);
+	}
+	
+	
+
 }

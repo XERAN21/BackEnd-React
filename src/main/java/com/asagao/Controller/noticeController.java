@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
@@ -29,11 +30,16 @@ public class noticeController {
 	      
 	      Notice[] notices = noticeService.getNotices();
 	      
-	      
-	      for (Notice notice : notices) {
-			System.out.println(notice);
-		}
-	      
 	      return notices;
+	}
+	
+	@GetMapping("{id}")
+	public Notice getDetail(@PathVariable int id,HttpSession session) {
+		User user = (User)session.getAttribute("user");
+	      if (user == null) {
+	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+	      }
+	      
+	      return noticeService.getNoticeDetails(id);
 	}
 }

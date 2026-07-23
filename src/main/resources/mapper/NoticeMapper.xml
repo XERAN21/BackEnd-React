@@ -16,4 +16,8 @@
 	<select id="findAll">
 		SELECT * FROM NOTICE
 	</select>
+	<select id="findById">
+		SELECT * FROM NOTICE 
+		WHERE id = #{Id}
+	</select>
 </mapper>
