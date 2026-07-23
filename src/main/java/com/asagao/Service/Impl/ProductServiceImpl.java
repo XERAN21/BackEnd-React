@@ -66,16 +66,17 @@ public class ProductServiceImpl implements ProductService{
 	public int addOrder(Order order,Cart[] carts) {
 		order.setCreatedAt(LocalDateTime.now());
 		order.setUpdatedAt(LocalDateTime.now());
-		int orderId = orderRepository.create(order);
-		order.setId(orderId);
-
+		orderRepository.create(order);
+		System.out.println(order);
+		
 		for (Cart cart: carts) {
 			OrderDetail orderDetail = new OrderDetail();
 			orderDetail.setOrderId(order.getId());  
 			orderDetail.setProductId(cart.getProductId());
-			orderDetail.setAmount(cart.getAmount());
+			orderDetail.setAmount(cart.getPrice());
 			orderDetail.setCreatedAt(LocalDateTime.now());
 			orderDetail.setUpdatedAt(LocalDateTime.now());
+			System.out.println(cart);
 			orderDetailRepository.create(orderDetail);
 		}
 		return 1;

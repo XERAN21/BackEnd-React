@@ -5,6 +5,7 @@ import java.util.Map;
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,11 +52,19 @@ public class paymentController {
 		Order order = convertToOrder(request.get("order"));
 		Cart[] carts = convertToCarts(request.get("cart"));
 
-		System.out.println(order);
-		System.out.println(carts);
-		
 		order.setUserId(user.getId());
 		productService.addOrder(order, carts);
+	}
+	
+	@DeleteMapping("deleteCart")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	public void deleteCartItem(HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		
+		productService.clearCartItems(user.getId());
 	}
 
 	private Order convertToOrder(Object orderData) {
