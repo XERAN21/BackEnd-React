@@ -76,7 +76,14 @@ public class productController {
 		cart.setAmount(cartDom.getAmount());
 		cart.setProductId(cartDom.getProductId());
 		cart.setUserId(user.getId());
-		productService.addToCart(cart);
+		if(productService.countByProductId(cart)!=null) {
+			cart.setAmount(productService.countByProductId(cart).getAmount()+cart.getAmount());
+			productService.update(cart);
+		}else {
+			productService.addToCart(cart);
+		}
+		
+		
 	}
 	
 }

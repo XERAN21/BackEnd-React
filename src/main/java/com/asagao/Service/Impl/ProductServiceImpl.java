@@ -48,6 +48,15 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
+	public Cart countByProductId(Cart cart) {
+		return cartRepository.countByProductId(cart);
+	}
+
+	@Override
+	public void update(Cart cart) {
+		cartRepository.update(cart);
+	}
+
 	public void clearCartItems(int userId) {
 		cartRepository.delete(userId);
 	}
