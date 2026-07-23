@@ -19,11 +19,13 @@
 		cart.*,
 		product.price,
 		product.name
-		from cart inner join product on cart.product_id = product.id
+		from cart inner join product on cart.product_id =
+		product.id
 		where cart.user_id = #{userId}
 	</select>
 	<insert id="addToCart" keyProperty="id" useGeneratedKeys="true">
-		insert into cart
+		insert
+		into cart
 		(user_id,product_id,amount)
 		values(#{userId},#{productId},#{amount})
 	</insert>
@@ -34,7 +36,8 @@
 	<select id="countByProductId" resultMap="Cart">
 		select *
 		from cart
-		where cart.user_id = #{userId} and
+		where
+		cart.user_id = #{userId} and
 		cart.product_id = #{productId}
 	</select>
 
@@ -43,7 +46,16 @@
 		set
 		amount = #{amount}
 		where
-		product_id = #{productId} and user_id = #{userId}
+		product_id =
+		#{productId} and user_id = #{userId}
 	</update>
+	<delete id="deleteByCartId">
+		delete from cart
+		where id = #{id}
+	</delete>
+	<select id="getById" resultMap="Cart">
+		select * from cart
+		where id = #{id}
+	</select>
 
 </mapper>
