@@ -18,15 +18,11 @@ public interface ProductService {
 
 
 
-	int addOrder(Order order);
+	int addOrder(Order order,Cart[] carts);
 	
-	int addOrderDetail(Cart[] carts);
-	
+
 	Cart[] getCartItems(int userId);
-	
-	
-	
-	
+
 	void clearCartItems(int userId);
 
 }

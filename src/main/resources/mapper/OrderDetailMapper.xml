@@ -7,15 +7,15 @@
 	<resultMap type="com.asagao.Domain.OrderDetail"
 		id="OrderDetail">
 		<id column="id" property="id" />
-		<result column="order_id" property="orderId" />
+		<result column="orders_id" property="orderId" />
 		<result column="productId" property="productId" />
 		<result column="amount" property="amount" />
 		<result column="created_at" property="createdAt" />
 		<result column="updated_at" property="updatedAt" />
 	</resultMap>
-	<insert id="create" useGeneratedKeys="true" keyProperty="Id">
+	<insert id="create" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
-		ORDERS_DETAIL(ORDER_ID,PRODUCT_ID,AMOUNT,CREATED_AT,UPDATED_AT)
+		ORDERS_DETAIL(ORDERS_ID,PRODUCT_ID,AMOUNT,CREATED_AT,UPDATED_AT)
 		VALUES
 		(#{orderId},#{productId},#{amount},#{createdAt},#{updatedAt})
 	</insert>
