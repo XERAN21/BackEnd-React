@@ -25,4 +25,6 @@ public interface ProductService {
 
 	void clearCartItems(int userId);
 
+	
+	void delete(int id);
 }

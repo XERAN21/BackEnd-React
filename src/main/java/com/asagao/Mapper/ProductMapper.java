@@ -3,6 +3,7 @@ package com.asagao.Mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.asagao.Domain.Product;
 
@@ -15,6 +16,7 @@ public interface ProductMapper {
 	
 //	void addToCart(Product product);
 
+	int delete(@Param("id") int id);
 
 	
 	

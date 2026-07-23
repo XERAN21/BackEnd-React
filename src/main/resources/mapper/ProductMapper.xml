@@ -31,5 +31,11 @@
 		  product
 		WHERE id = #{id}
 	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM product
+		WHERE id =
+		#{id}
+	</delete>
 
 </mapper>
