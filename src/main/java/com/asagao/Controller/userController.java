@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.asagao.Domain.User;
+import com.asagao.Service.Interface.LoginService;
 import com.asagao.Service.Interface.UserService;
 @RestController
 @RequestMapping("/api/auth")
@@ -23,9 +24,11 @@ import com.asagao.Service.Interface.UserService;
 public class userController {
 
     private final UserService userService;
+    private final LoginService loginService;
 
-    public userController(UserService userService) {
+    public userController(UserService userService, LoginService loginService) {
         this.userService = userService;
+        this.loginService = loginService;
     }
 
     @GetMapping("/me")
@@ -63,5 +66,24 @@ public class userController {
 		
 		int result = userService.saveUser(user);
 		return result;
+	}
+	
+	
+	/**
+	 * 現在のパスワードが一致しているか検証（パスワード変更機能）
+	 * @param 入力されたパスワード
+	 * @return 一致しているか
+	 */
+	@PostMapping("/password")
+	public Boolean checkPassword(@RequestBody Map<String, String> body, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		
+		User check = loginService.authenticate(user.getEmail(), body.get("nowPass"));
+		
+		if(check != null) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 }
