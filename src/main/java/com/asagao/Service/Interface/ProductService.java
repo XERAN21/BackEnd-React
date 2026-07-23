@@ -20,5 +20,7 @@ public interface ProductService {
 	int proceedPayment();
 	
 	Cart[] getCartItems(int userId);
+	
+	int countByProductId(Cart cart);
 
 }

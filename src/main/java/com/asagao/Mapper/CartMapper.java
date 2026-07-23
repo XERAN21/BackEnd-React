@@ -9,4 +9,6 @@ public interface CartMapper {
 	Cart[] findAll(int userId);
 	
 	void addToCart(Cart cart);
+	
+	int countByProductId(Cart cart);
 }

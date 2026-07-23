@@ -66,4 +66,9 @@ public class ProductServiceImpl implements ProductService{
 		return cartRepository.findAll(userId);
 	}
 
+	@Override
+	public int countByProductId(Cart cart) {
+		return cartRepository.countByProductId(cart);
+	}
+
 }

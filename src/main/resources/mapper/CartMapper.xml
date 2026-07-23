@@ -32,4 +32,11 @@
   		delete from cart
   		where user_id = #{userId}
   	</delete>
+  	<select id="countByProductId" resultType="Int">
+	select count(*)
+	from cart
+	where cart.user_id = #{userId} and
+	cart.product_id = #{productId}
+  	</select>
+  	
   </mapper>

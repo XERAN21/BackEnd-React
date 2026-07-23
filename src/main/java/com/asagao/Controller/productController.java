@@ -76,6 +76,7 @@ public class productController {
 		cart.setAmount(cartDom.getAmount());
 		cart.setProductId(cartDom.getProductId());
 		cart.setUserId(user.getId());
+		
 		productService.addToCart(cart);
 	}
 	
