@@ -4,6 +4,7 @@ package com.asagao.Service.Interface;
 import java.util.List;
 
 import com.asagao.Domain.Cart;
+import com.asagao.Domain.Order;
 import com.asagao.Domain.Product;
 
 public interface ProductService {
@@ -17,12 +18,15 @@ public interface ProductService {
 
 
 
-	int proceedPayment();
+	int addOrder(Order order,Cart[] carts);
 	
+
 	Cart[] getCartItems(int userId);
 	
 	Cart countByProductId(Cart cart);
 	
 	void update(Cart cart);
+
+	void clearCartItems(int userId);
 
 }
