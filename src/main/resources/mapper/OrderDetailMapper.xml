@@ -12,6 +12,10 @@
 		<result column="amount" property="amount" />
 		<result column="created_at" property="createdAt" />
 		<result column="updated_at" property="updatedAt" />
+		<result column="name" property="productName"/>
+		<result column="description" property="productDescription"/>
+		<result column="price" property="productPrice"/>
+		<result column="image_url" property="productImage_url"/>
 	</resultMap>
 	<insert id="create" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
@@ -19,8 +23,19 @@
 		VALUES
 		(#{orderId},#{productId},#{amount},#{createdAt},#{updatedAt})
 	</insert>
-	<select id="getOderDetails">
-		select * from ORDERS_DETAIL
+	<select id="getOderDetails" resultMap="OrderDetail">
+		select ORDERS_DETAIL.id ,
+		ORDERS_DETAIL.orders_id ,
+		ORDERS_DETAIL.product_id,
+		ORDERS_DETAIL.amount,
+		ORDERS_DETAIL.created_at,
+		ORDERS_DETAIL.updated_at,
+		product.price,
+		product.name,
+		product.description,
+		product.image_url
+		from ORDERS_DETAIL inner join product on ORDERS_DETAIL.product_id =
+		product.id
 		where orders_id =#{orderId}
 	</select>
 </mapper>

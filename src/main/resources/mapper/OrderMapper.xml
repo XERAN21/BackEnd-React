@@ -26,11 +26,11 @@
 		VALUES
 		(#{userId},#{creditNumber},#{lastName},#{firstName},#{postNumber},#{address},#{telNumber},#{sumPrice},#{createdAt},#{updatedAt})
 	</insert>
-	<select id="getOrders">
+	<select id="getOrders" resultMap="Order">
 		select * from ORDERS
 		where user_id=#{userId}
 	</select>
-	<select id="getOrder">
+	<select id="getOrder" resultMap="Order">
 		select * from ORDERS
 		where id=#{id}
 	</select>
