@@ -13,6 +13,7 @@
 		<result column="post_number" property="postNumber" />
 		<result column="address" property="address" />
 		<result column="tel_number" property="telNumber" />
+		<result column="sum_price" property="sumPrice"/>
 		<result column="created_at" property="createdAt" />
 		<result column="updated_at" property="updatedAt" />
 	</resultMap>
@@ -20,8 +21,10 @@
 		INSERT
 		INTO
 		ORDERS(USER_ID,CREDIT_NUMBER,LAST_NAME,FIRST_NAME,POST_NUMBER,ADDRESS,TEL_NUMBER,CREATED_AT,UPDATED_AT)
+		INSERT INTO
+		ORDERS(USER_ID,CREDIT_NUMBER,LAST_NAME,FIRST_NAME,POST_NUMBER,ADDRESS,TEL_NUMBER,SUM_PRICE,CREATED_AT,UPDATED_AT)
 		VALUES
-		(#{userId},#{creditNumber},#{lastName},#{firstName},#{postNumber},#{address},#{telNumber},#{createdAt},#{updatedAt})
+		(#{userId},#{creditNumber},#{lastName},#{firstName},#{postNumber},#{address},#{telNumber},#{sumPrice},#{createdAt},#{updatedAt})
 	</insert>
 	<select id="getOrders">
 		select * from ORDERS
