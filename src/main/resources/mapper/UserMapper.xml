@@ -22,7 +22,7 @@
     <select id="findById" resultMap="UserResultMap">
         SELECT 
            *
-        FROM users 
+        FROM user 
            WHERE id = #{id}
     </select>
 

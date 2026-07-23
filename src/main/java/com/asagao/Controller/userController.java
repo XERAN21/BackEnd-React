@@ -69,7 +69,7 @@ public class userController {
 	}
 
 	//userIDをもとに1つのユーザー情報取得
-	@GetMapping("{id}")
+	@GetMapping("/{id}")
 	public User getUserId(
 			@PathVariable Integer id,
 			HttpSession session) {
@@ -89,7 +89,7 @@ public class userController {
 		if (user == null) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Resource not found");
 		}
-		return userService.findById(id);
+		return user;
 	}
 
 	//アカウント編集機能
