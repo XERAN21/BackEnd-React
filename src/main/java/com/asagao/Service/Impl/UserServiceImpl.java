@@ -22,11 +22,18 @@ public class UserServiceImpl implements UserService{
 		return userRepository.findById(id);
 	}
 	
+	//アカウント登録
 	@Override
 	public int saveUser(User user) {
 		user.setCreatedAt(LocalDate.now());
 		user.setUpdatedAt(LocalDate.now());
 		return userRepository.save(user);
+	}
+	
+	//アカウント編集
+	@Override
+	public User updateUser(User user) {
+		return userRepository.update(user);
 	}
 
 }
