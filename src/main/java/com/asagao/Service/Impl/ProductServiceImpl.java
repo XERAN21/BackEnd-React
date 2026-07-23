@@ -48,6 +48,15 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
+	public Cart countByProductId(Cart cart) {
+		return cartRepository.countByProductId(cart);
+	}
+
+	@Override
+	public void update(Cart cart) {
+		cartRepository.update(cart);
+	}
+
 	public void clearCartItems(int userId) {
 		cartRepository.delete(userId);
 	}
@@ -57,19 +66,31 @@ public class ProductServiceImpl implements ProductService{
 	public int addOrder(Order order,Cart[] carts) {
 		order.setCreatedAt(LocalDateTime.now());
 		order.setUpdatedAt(LocalDateTime.now());
-		int orderId = orderRepository.create(order);
-		order.setId(orderId);
-
+		orderRepository.create(order);
+		System.out.println(order);
+		
 		for (Cart cart: carts) {
 			OrderDetail orderDetail = new OrderDetail();
 			orderDetail.setOrderId(order.getId());  
 			orderDetail.setProductId(cart.getProductId());
-			orderDetail.setAmount(cart.getAmount());
+			orderDetail.setAmount(cart.getPrice());
 			orderDetail.setCreatedAt(LocalDateTime.now());
 			orderDetail.setUpdatedAt(LocalDateTime.now());
+			System.out.println(cart);
 			orderDetailRepository.create(orderDetail);
 		}
 		return 1;
+	}
+
+	@Override
+	public void deleteCartByCartId(int id) {
+		cartRepository.deleteByCartId(id);
+		
+	}
+
+	@Override
+	public Cart getCartById(int id) {
+		return cartRepository.getById(id);
 	}
 
 }
