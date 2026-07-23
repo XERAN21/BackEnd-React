@@ -81,4 +81,15 @@ public class ProductServiceImpl implements ProductService{
 		return 1;
 	}
 
+	@Override
+	public void deleteCartByCartId(int id) {
+		cartRepository.deleteByCartId(id);
+		
+	}
+
+	@Override
+	public Cart getCartById(int id) {
+		return cartRepository.getById(id);
+	}
+
 }

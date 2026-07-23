@@ -15,4 +15,8 @@ public interface CartMapper {
 	Cart countByProductId(Cart cart);
 	
 	void update(Cart cart);
+	
+	void deleteByCartId(int id);
+	
+	Cart getById(int id);
 }

@@ -41,4 +41,15 @@ public class DBCartRepository implements CartRepository {
 		return cartMapper.delete(userId);
 	}
 
+	@Override
+	public void deleteByCartId(int id) {
+		cartMapper.deleteByCartId(id);
+		
+	}
+
+	@Override
+	public Cart getById(int id) {
+		return cartMapper.getById(id);
+	}
+
 }
