@@ -11,4 +11,6 @@ public interface OrderMapper{
 	int create(Order order);
 	
 	List<Order> getOrders(int userId);
+	
+	Order getOrder(int id);
 }

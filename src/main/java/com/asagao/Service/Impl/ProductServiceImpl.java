@@ -93,4 +93,19 @@ public class ProductServiceImpl implements ProductService{
 		return cartRepository.getById(id);
 	}
 
+	@Override
+	public List<OrderDetail> getOderDetails(int orderId) {
+		return orderDetailRepository.getOderDetails(orderId);
+	}
+
+	@Override
+	public List<Order> getOrders(int userId) {
+		return orderRepository.getOrders(userId);
+	}
+
+	@Override
+	public Order getOrder(int id) {
+		return orderRepository.getOrder(id);
+	}
+
 }

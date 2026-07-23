@@ -17,6 +17,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.asagao.Domain.Cart;
 import com.asagao.Domain.CartDom;
+import com.asagao.Domain.Order;
+import com.asagao.Domain.OrderDetail;
 import com.asagao.Domain.Product;
 import com.asagao.Domain.User;
 import com.asagao.Repository.Interface.ProductRepository;
@@ -78,6 +80,38 @@ public class productController {
 
 		productService.deleteCartByCartId(id);
 
+	}
+
+	@GetMapping("/order")
+	public List<Order> getOrders(HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		return productService.getOrders(user.getId());
+	}
+
+	@GetMapping("/order/detail/{id}")
+	public List<OrderDetail> getOrderDetails(@PathVariable Integer id, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		if (productService.getOrder(id).userId != user.getId()) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		
+		return productService.getOderDetails(id);
+	}
+	@GetMapping("/order/{id}")
+	public Order getOrder(@PathVariable Integer id, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}if (productService.getOrder(id).userId != user.getId()) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		return productService.getOrder(id);
 	}
 
 }

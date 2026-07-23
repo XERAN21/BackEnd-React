@@ -1,5 +1,7 @@
 package com.asagao.Repository.DB;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.asagao.Domain.OrderDetail;
@@ -17,6 +19,11 @@ public class DBOrderDetailRepository implements OrderDetailRepository {
 	@Override
 	public int create(OrderDetail orderDetail) {
 		return orderDetailMapper.create(orderDetail);
+	}
+
+	@Override
+	public List<OrderDetail> getOderDetails(int orderId) {
+		return orderDetailMapper.getOderDetails(orderId);
 	}
 
 }
