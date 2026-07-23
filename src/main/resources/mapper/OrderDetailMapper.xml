@@ -19,4 +19,8 @@
 		VALUES
 		(#{orderId},#{productId},#{amount},#{createdAt},#{updatedAt})
 	</insert>
+	<select id="getOderDetails">
+		select * from ORDERS_DETAIL
+		where orders_id =#{orderId}
+	</select>
 </mapper>

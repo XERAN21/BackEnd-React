@@ -7,4 +7,6 @@ import com.asagao.Domain.Order;
 @Mapper
 public interface OrderMapper{
 	int create(Order order);
+	
+	Order getOrders(int userId);
 }
