@@ -1,5 +1,7 @@
 package com.asagao.Service.Impl;
 
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Service;
 
 import com.asagao.Domain.User;
@@ -20,9 +22,18 @@ public class UserServiceImpl implements UserService{
 		return userRepository.findById(id);
 	}
 	
+	//アカウント登録
 	@Override
 	public int saveUser(User user) {
+		user.setCreatedAt(LocalDate.now());
+		user.setUpdatedAt(LocalDate.now());
 		return userRepository.save(user);
+	}
+	
+	//アカウント編集
+	@Override
+	public User updateUser(User user) {
+		return userRepository.update(user);
 	}
 
 }

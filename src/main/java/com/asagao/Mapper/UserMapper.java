@@ -14,5 +14,9 @@ public interface UserMapper {
 	//メールアドレス,パスワードをもとに取得
 	User findByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 
+	//アカウント登録
 	int save(User user);
+	
+	//アカウント編集
+	int update(User user);
 }
