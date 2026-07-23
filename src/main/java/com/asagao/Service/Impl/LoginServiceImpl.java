@@ -17,7 +17,7 @@ public class LoginServiceImpl implements LoginService {
 	/**
 	 * ログイン認証を行うメソッド
      * @param email フロントから届いたメール
-     * @param rawPassword フロントから届いた生のパスワード
+     * @param password フロントから届いた生のパスワード
      * @return 認証成功時はUserオブジェクト、失敗時はnull
 	 */
 	@Override
@@ -30,15 +30,6 @@ public class LoginServiceImpl implements LoginService {
 			return null; 
 		}
 		
-		// 2. 生のパスワードと、DBにあったハッシュ化パスワードを照合する
-        // 一致すれば true、間違っていれば false が返る
-//		boolean isPasswordMach = BCrypt.checkpw(password, user.getPassword());
-//		
-//		if(isPasswordMach) {
-//			// パスワードが合っていれば、ログイン成功としてユーザー情報を返す
-//			return user; 
-//		}
-		// パスワードが違っていればログイン失敗(null)
 		return user; 
 	}
 

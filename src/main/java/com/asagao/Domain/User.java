@@ -14,8 +14,8 @@ public class User {
     private String email;
     /** パスワード */
     private String password;
-    /** 役割（1:一般ユーザー、2:管理者） */
-    private Integer role = 1;
+    /** 役割（1:管理者、2:一般ユーザー） */
+    private Integer role = 2;
     /** 名 */
     private String lastName;
     /** 姓 */

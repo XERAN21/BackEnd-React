@@ -82,6 +82,16 @@ public class ProductServiceImpl implements ProductService{
 		return 1;
 	}
 
+
+	
+	@Override
+    public void delete(int id) {
+        int deleted = productRepository.delete(id);
+        if (deleted == 0) {
+            throw new IllegalArgumentException("Product not found. id=" + id);
+        }
+    }
+
 	@Override
 	public void deleteCartByCartId(int id) {
 		cartRepository.deleteByCartId(id);

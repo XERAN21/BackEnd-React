@@ -22,7 +22,7 @@
     <select id="findById" resultMap="UserResultMap">
         SELECT 
            *
-        FROM users 
+        FROM user 
            WHERE id = #{id}
     </select>
 
@@ -38,9 +38,22 @@
   	  password = sha2(#{password}, 256)      
   </select>
   
-  <insert id="save" useGeneratedKeys="true" keyProperty="id">
+  <insert id="save" parameterType="com.asagao.Domain.User" useGeneratedKeys="true" keyProperty="id">
     INSERT INTO user (email, password, role, last_name, first_name, post_number, address, tel_number, created_at, updated_at)
     values (#{email},sha2(#{password}, 256), #{role}, #{lastName}, #{firstName}, #{postNumber}, #{address}, #{telNumber}, #{createdAt}, #{updatedAt})
   </insert>
+  
+  <update id="update" parameterType="com.asagao.Domain.User">
+    UPDATE user
+    SET
+      email = #{email}, 
+      lastName = #{last_name}, 
+      firstName = #{first_name}, 
+      postNumber = #{post_number},
+      address = #{address},
+      telNumber = #{tel_number}
+    WHERE 
+      id = #{id} 
+  </update>
   
   </mapper>

@@ -7,5 +7,9 @@ public interface UserService {
 
 	User findById(int id);
 
+	//アカウント登録
 	public int saveUser(User user);
+	
+	//アカウント編集
+	public User updateUser(User user);
 }

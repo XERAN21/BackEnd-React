@@ -34,15 +34,34 @@ public class productController {
 	private final ProductRepository productRepository;
 
 	@GetMapping
-	public List<Product> list(HttpSession session) {
+	  public List<Product> list(HttpSession session) {
+	      
+	      return productService.getProducts();
+	  }
+	
+	@DeleteMapping("/{id}")
+	  public void delete(@PathVariable Integer id) {
+	      productService.delete(id);
+	  }
+	
+	
 
-		return productService.getProducts();
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
-	@GetMapping("/{id}")
-	private Product getById(@PathVariable Integer id, HttpSession session) {
-		return productRepository.findById(id);
-	}
+
 
 	@PostMapping("/addToCart")
 	public void addToCart(@RequestBody CartDom cartDom,
