@@ -19,4 +19,7 @@ public interface UserMapper {
 	
 	//アカウント編集
 	int update(User user);
+
+	int changePassword(int id, String newPass);
+
 }

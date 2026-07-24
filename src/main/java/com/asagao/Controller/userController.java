@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.asagao.Domain.User;
+import com.asagao.Service.Interface.LoginService;
 import com.asagao.Service.Interface.UserService;
 
 @RestController
@@ -26,11 +27,14 @@ import com.asagao.Service.Interface.UserService;
 
 public class userController {
 
-	private final UserService userService;
+    private final UserService userService;
+    private final LoginService loginService;
 
-	public userController(UserService userService) {
-		this.userService = userService;
-	}
+    public userController(UserService userService, LoginService loginService) {
+        this.userService = userService;
+        this.loginService = loginService;
+    }
+
 
 	@GetMapping("/me")
 	public ResponseEntity<Map<String, Object>> getCurrentUser(HttpSession session) {
@@ -112,6 +116,36 @@ public class userController {
 
 		user.setId(id);
 		return userService.updateUser(user);
+	}
+	
+	
+	/**
+	 * 現在のパスワードが一致しているか検証（パスワード変更機能）
+	 * @param 入力されたパスワード
+	 * @return 一致しているか
+	 */
+	@PostMapping("/password")
+	public Boolean checkPassword(@RequestBody Map<String, String> body, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		
+		User check = loginService.authenticate(user.getEmail(), body.get("nowPass"));
+		
+		if(check != null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	/**
+	 * パスワード変更
+	 * @param 入力したパスワード
+	 */
+	@PutMapping("/password")
+	public int changePassword(@RequestBody Map<String, String> body, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		
+		return userService.changePassword(user.getId(), body.get("newPass"));
 	}
 
 }

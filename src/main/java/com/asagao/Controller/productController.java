@@ -4,7 +4,6 @@ import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +22,6 @@ import com.asagao.Domain.Order;
 import com.asagao.Domain.OrderDetail;
 import com.asagao.Domain.Product;
 import com.asagao.Domain.User;
-import com.asagao.Repository.Interface.ProductRepository;
 import com.asagao.Service.Interface.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -33,14 +31,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class productController {
 
-	@Autowired
-	private ProductService productService;
+	private final ProductService productService;
 
-	private final ProductRepository productRepository;
 
 	@GetMapping
 	public List<Product> getProducts(@RequestParam(value = "name", required = false) String name) {
 		  return productService.findAll(name); 
+	}
+	
+	@GetMapping("/{id}")
+	public Product getProduct(@PathVariable Integer id) {
+		  return productService.getById(id); 
 	}
 	
 	@DeleteMapping("/{id}")

@@ -36,4 +36,10 @@ public class UserServiceImpl implements UserService{
 		return userRepository.update(user);
 	}
 
+	@Override
+	public int changePassword(int id, String newPass) {
+		return userRepository.changePassword(id, newPass);
+
+	}
+
 }

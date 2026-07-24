@@ -12,4 +12,7 @@ public interface UserService {
 	
 	//アカウント編集
 	public User updateUser(User user);
+
+	int changePassword(int id, String newPass);
+
 }
