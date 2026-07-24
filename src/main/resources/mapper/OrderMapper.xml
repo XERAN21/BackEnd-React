@@ -18,11 +18,22 @@
 		<result column="updated_at" property="updatedAt" />
 	</resultMap>
 	<insert id="create" useGeneratedKeys="true" keyProperty="id">
+		INSERT
+		INTO
+		ORDERS(USER_ID,CREDIT_NUMBER,LAST_NAME,FIRST_NAME,POST_NUMBER,ADDRESS,TEL_NUMBER,CREATED_AT,UPDATED_AT)
 		INSERT INTO
 		ORDERS(USER_ID,CREDIT_NUMBER,LAST_NAME,FIRST_NAME,POST_NUMBER,ADDRESS,TEL_NUMBER,SUM_PRICE,CREATED_AT,UPDATED_AT)
 		VALUES
 		(#{userId},#{creditNumber},#{lastName},#{firstName},#{postNumber},#{address},#{telNumber},#{sumPrice},#{createdAt},#{updatedAt})
 	</insert>
+	<select id="getOrders" resultMap="Order">
+		select * from ORDERS
+		where user_id=#{userId}
+	</select>
+	<select id="getOrder" resultMap="Order">
+		select * from ORDERS
+		where id=#{id}
+	</select>
 
 </mapper>
 

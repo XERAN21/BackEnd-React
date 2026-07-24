@@ -12,4 +12,8 @@ public class OrderDetail {
 	public Integer amount;
 	public LocalDateTime createdAt;
 	public LocalDateTime updatedAt;
+	private String productName;
+	private String productDescription;
+	private Integer productPrice;
+	private String productImage_url;
 }

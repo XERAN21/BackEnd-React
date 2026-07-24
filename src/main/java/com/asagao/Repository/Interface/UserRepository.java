@@ -15,4 +15,7 @@ public interface UserRepository {
 	
 	//アカウント編集
 	User update(User user);
+
+	int changePassword(int id, String newPass);
+
 }

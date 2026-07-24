@@ -43,4 +43,12 @@ public class DBUserRepository implements UserRepository {
 		// ② 更新が成功したので、マッパーから最新のデータを取得して返す
 		return userMapper.findById(user.getId());
 	}
+	
+	/**
+	 * パスワードを変更
+	 */
+	@Override
+	public int changePassword(int id, String newPass) {
+		return userMapper.changePassword(id, newPass);
+	}
 }

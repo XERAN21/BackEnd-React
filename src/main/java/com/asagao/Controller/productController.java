@@ -11,15 +11,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.asagao.Domain.Cart;
 import com.asagao.Domain.CartDom;
+import com.asagao.Domain.Order;
+import com.asagao.Domain.OrderDetail;
 import com.asagao.Domain.Product;
 import com.asagao.Domain.User;
-import com.asagao.Repository.Interface.ProductRepository;
 import com.asagao.Service.Interface.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -31,13 +33,16 @@ public class productController {
 
 	private final ProductService productService;
 
-	private final ProductRepository productRepository;
 
 	@GetMapping
-	  public List<Product> list(HttpSession session) {
-	      
-	      return productService.getProducts();
-	  }
+	public List<Product> getProducts(@RequestParam(value = "name", required = false) String name) {
+		  return productService.findAll(name); 
+	}
+	
+	@GetMapping("/{id}")
+	public Product getProduct(@PathVariable Integer id) {
+		  return productService.getById(id); 
+	}
 	
 	@DeleteMapping("/{id}")
 	  public void delete(@PathVariable Integer id) {
@@ -97,6 +102,38 @@ public class productController {
 
 		productService.deleteCartByCartId(id);
 
+	}
+
+	@GetMapping("/order")
+	public List<Order> getOrders(HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		return productService.getOrders(user.getId());
+	}
+
+	@GetMapping("/order/detail/{id}")
+	public List<OrderDetail> getOrderDetails(@PathVariable Integer id, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		if (productService.getOrder(id).userId != user.getId()) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		
+		return productService.getOderDetails(id);
+	}
+	@GetMapping("/order/{id}")
+	public Order getOrder(@PathVariable Integer id, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}if (productService.getOrder(id).userId != user.getId()) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		return productService.getOrder(id);
 	}
 
 }
