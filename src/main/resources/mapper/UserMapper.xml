@@ -43,4 +43,12 @@
     values (#{email},sha2(#{password}, 256), #{role}, #{lastName}, #{firstName}, #{postNumber}, #{address}, #{telNumber}, #{createdAt}, #{updatedAt})
   </insert>
   
+	<update id="changePassword" parameterType="com.asagao.Domain.User">
+		update user
+		set
+			password = SHA2(#{newPass}, 256)
+		where
+			id = #{id}
+	</update>
+  
   </mapper>

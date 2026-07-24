@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -85,5 +86,16 @@ public class userController {
 		}else {
 			return false;
 		}
+	}
+	
+	/**
+	 * パスワード変更
+	 * @param 入力したパスワード
+	 */
+	@PutMapping("/password")
+	public int changePassword(@RequestBody Map<String, String> body, HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		
+		return userService.changePassword(user.getId(), body.get("newPass"));
 	}
 }

@@ -29,4 +29,12 @@ public class DBUserRepository implements UserRepository {
 	public User findById(int id) {
 		return userMapper.findById(id);
 	}
+	
+	/**
+	 * パスワードを変更
+	 */
+	@Override
+	public int changePassword(int id, String newPass) {
+		return userMapper.changePassword(id, newPass);
+	}
 }

@@ -8,4 +8,6 @@ public interface UserService {
 	User findById(int id);
 
 	public int saveUser(User user);
+	
+	int changePassword(int id, String newPass);
 }

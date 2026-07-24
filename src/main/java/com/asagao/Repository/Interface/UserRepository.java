@@ -11,4 +11,6 @@ public interface UserRepository {
 	User findByEmailAndPassword(String email, String password);
 	
 	int save(User user);
+	
+	int changePassword(int id, String newPass);
 }

@@ -15,4 +15,6 @@ public interface UserMapper {
 	User findByEmailAndPassword(@Param("email") String email, @Param("password") String password);
 
 	int save(User user);
+	
+	int changePassword(int id, String newPass);
 }
