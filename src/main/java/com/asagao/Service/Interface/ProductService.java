@@ -9,7 +9,7 @@ import com.asagao.Domain.Product;
 
 public interface ProductService {
 
-	List<Product> findAll(String name);
+	List<Product> findAll(String name, String colorId);
 
 	Product getById(int id);
 

@@ -1,7 +1,8 @@
 package com.asagao.Repository.Interface;
 
-import java.awt.Color;
 import java.util.List;
+
+import com.asagao.Domain.Color; 
 
 public interface ColorRepository {
 

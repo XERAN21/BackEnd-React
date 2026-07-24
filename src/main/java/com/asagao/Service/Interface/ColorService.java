@@ -1,7 +1,8 @@
 package com.asagao.Service.Interface;
 
-import java.awt.Color;
 import java.util.List;
+
+import com.asagao.Domain.Color;
 
 public interface ColorService {
 

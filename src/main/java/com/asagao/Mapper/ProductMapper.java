@@ -10,7 +10,7 @@ import com.asagao.Domain.Product;
 @Mapper
 public interface ProductMapper {
 
-	List<Product> findAll(@Param("name") String name);
+	List<Product> findAll(@Param("name") String name, @Param("colorId") String colorId);
 	
 	Product findById(int id);
 	

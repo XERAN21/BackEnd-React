@@ -35,8 +35,11 @@ public class productController {
 
 
 	@GetMapping
-	public List<Product> getProducts(@RequestParam(value = "name", required = false) String name) {
-		  return productService.findAll(name); 
+	public List<Product> getProducts(
+			@RequestParam(value = "name", required = false) String name,
+			@RequestParam(value = "colorId", required = false) String colorId) {
+		
+		return productService.findAll(name, colorId);
 	}
 	
 	@GetMapping("/{id}")

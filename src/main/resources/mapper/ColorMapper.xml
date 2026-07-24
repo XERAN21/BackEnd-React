@@ -13,11 +13,10 @@
 
 	<select id="findAll" resultMap="ColorResultMap">
 		SELECT
-		c.id,
-		c.name
+		id,
+		name
 		FROM
-		color c
-		ORDER BY c.id
+		color 
 	</select>
 	
 </mapper>
