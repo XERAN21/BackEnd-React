@@ -47,13 +47,13 @@
     UPDATE user
     SET
       email = #{email}, 
-      lastName = #{last_name}, 
-      firstName = #{first_name}, 
-      postNumber = #{post_number},
+      last_name = #{lastName}, 
+      first_name = #{firstName}, 
+      post_number = #{postNumber},
       address = #{address},
-      telNumber = #{tel_number}
+      tel_number = #{telNumber}
     WHERE 
-      id = #{id} 
+      id = #{id}  
   </update>
   
   </mapper>
