@@ -8,7 +8,7 @@ import com.asagao.Domain.Product;
 
 public interface ProductService {
 
-	public List<Product> getProducts();
+	List<Product> findAll(String name);
 
 	Product getById(int id);
 

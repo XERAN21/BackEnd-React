@@ -6,7 +6,7 @@ import com.asagao.Domain.Product;
 
 public interface ProductRepository {
     
-	List<Product> findAll();
+	List<Product> findAll(String name);
 	
 	
 	int delete(int id);

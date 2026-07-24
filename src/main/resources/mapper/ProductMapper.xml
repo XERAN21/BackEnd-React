@@ -17,11 +17,17 @@
 		<result column="updated_at" property="updatedAt" />
 	</resultMap>
 	
+	
 	<select id="findAll" resultMap="ProductResultMap">
 		SELECT
 		  *
 		FROM
 		  product
+		<where>
+			<if test="name != null and name != ''">
+				name LIKE CONCAT('%', #{name}, '%')
+			</if>
+		</where>
 	</select>
 	
 	<select id="findById" resultMap="ProductResultMap">
@@ -34,8 +40,7 @@
 	
 	<delete id="delete" parameterType="int">
 		DELETE FROM product
-		WHERE id =
-		#{id}
+		WHERE id = #{id}
 	</delete>
 
 </mapper>

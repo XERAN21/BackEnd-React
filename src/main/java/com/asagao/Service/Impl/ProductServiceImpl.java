@@ -3,6 +3,7 @@ package com.asagao.Service.Impl;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,14 +23,15 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductServiceImpl implements ProductService{
 
-	private final ProductRepository productRepository;
+	@Autowired
+	private ProductRepository productRepository;
 	private final OrderRepository orderRepository;
 	private final OrderDetailRepository orderDetailRepository;
 	private final CartRepository cartRepository;
 
 	@Override
-	public List<Product> getProducts() {
-		return productRepository.findAll();
+	public List<Product> findAll(String name) {
+		return productRepository.findAll(name);
 	}
 
 	@Override

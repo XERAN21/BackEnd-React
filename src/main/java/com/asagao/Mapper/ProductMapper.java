@@ -10,24 +10,11 @@ import com.asagao.Domain.Product;
 @Mapper
 public interface ProductMapper {
 
-	List<Product> findAll();
+	List<Product> findAll(@Param("name") String name);
 	
 	Product findById(int id);
 	
 //	void addToCart(Product product);
 
 	int delete(@Param("id") int id);
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
