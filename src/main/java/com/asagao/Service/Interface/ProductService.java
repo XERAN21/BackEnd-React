@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.asagao.Domain.Cart;
 import com.asagao.Domain.Order;
+import com.asagao.Domain.OrderDetail;
 import com.asagao.Domain.Product;
 
 public interface ProductService {
@@ -31,5 +32,11 @@ public interface ProductService {
 	void deleteCartByCartId(int id);
 
 	Cart getCartById(int id);
+	
+	List<OrderDetail> getOderDetails(int orderId);
+	
+	List<Order> getOrders(int userId);
+	
+	Order getOrder(int id);
 
 }

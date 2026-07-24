@@ -69,7 +69,7 @@ public class ProductServiceImpl implements ProductService{
 		order.setCreatedAt(LocalDateTime.now());
 		order.setUpdatedAt(LocalDateTime.now());
 		orderRepository.create(order);
-		System.out.println(order);
+		System.out.println(order.getSumPrice());
 		
 		for (Cart cart: carts) {
 			OrderDetail orderDetail = new OrderDetail();
@@ -103,6 +103,21 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Cart getCartById(int id) {
 		return cartRepository.getById(id);
+	}
+
+	@Override
+	public List<OrderDetail> getOderDetails(int orderId) {
+		return orderDetailRepository.getOderDetails(orderId);
+	}
+
+	@Override
+	public List<Order> getOrders(int userId) {
+		return orderRepository.getOrders(userId);
+	}
+
+	@Override
+	public Order getOrder(int id) {
+		return orderRepository.getOrder(id);
 	}
 
 }
