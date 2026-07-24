@@ -30,8 +30,8 @@ public class ProductServiceImpl implements ProductService{
 	private final CartRepository cartRepository;
 
 	@Override
-	public List<Product> findAll(String name) {
-		return productRepository.findAll(name);
+	public List<Product> findAll(String name, String colorId) {
+		return productRepository.findAll(name, colorId);
 	}
 
 	@Override

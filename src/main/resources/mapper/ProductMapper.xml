@@ -27,6 +27,9 @@
 			<if test="name != null and name != ''">
 				name LIKE CONCAT('%', #{name}, '%')
 			</if>
+			<if test="colorId != null and colorId != ''">
+				AND color = #{colorId}
+			</if>
 		</where>
 	</select>
 	

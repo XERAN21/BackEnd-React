@@ -21,8 +21,8 @@ public class DBProductRepository implements ProductRepository{
 	private final CartMapper cartMapper;
 	
 	@Override
-	public List<Product> findAll(String name) {
-		return ProductMapper.findAll(name);
+	public List<Product> findAll(String name, String colorId) {
+		return ProductMapper.findAll(name, colorId);
 	}
 
 
