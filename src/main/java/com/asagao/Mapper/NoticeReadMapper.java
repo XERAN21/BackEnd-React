@@ -7,4 +7,6 @@ import com.asagao.Domain.NoticeRead;
 @Mapper
 public interface NoticeReadMapper {
 	NoticeRead[] getAll(int userId);
+	
+	int MarkRead(NoticeRead noticeRead);
 }

@@ -5,7 +5,7 @@
   
 <mapper namespace="com.asagao.Mapper.NoticeReadMapper">
 	<resultMap type="com.asagao.Domain.NoticeRead" id="NoticeRead">
-		<id property="Id" column="id"/>
+		<id property="Id" column="Id"/>
 		<result property="NoticeId" column="notice_id"/>
 		<result property="UserId" column="user_id"/>
 		<result property="createdAt" column="created_at"/>
@@ -15,4 +15,10 @@
 		select * from notice_read 
 		where user_id = #{userId}
 	</select>
+	<insert id="MarkRead" useGeneratedKeys="true" keyProperty="Id">
+		insert into 
+		notice_read  (notice_id,user_id,created_at,updated_at)
+		values
+		(#{NoticeId},#{UserId},#{createdAt},#{updatedAt})
+	</insert>
 </mapper>

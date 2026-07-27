@@ -39,6 +39,11 @@ public class DBNoticeRepository implements NoticeRepository {
 	public NoticeRead[] getAll(int userId) {
 		return noticeReadMapper.getAll(userId);
 	}
+
+	@Override
+	public int MarkRead(NoticeRead noticeRead) {
+		return noticeReadMapper.MarkRead(noticeRead);
+	}
 	
 	
 

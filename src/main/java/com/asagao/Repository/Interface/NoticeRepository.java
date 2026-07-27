@@ -9,4 +9,6 @@ public interface NoticeRepository {
 	Notice findById(int noticeId);
 	
 	NoticeRead[] getAll(int userId);
+	
+	int MarkRead(NoticeRead noticeRead);
 }
