@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.asagao.Domain.Notice;
+import com.asagao.Domain.NoticeRead;
 import com.asagao.Domain.User;
 import com.asagao.Service.Interface.NoticeService;
 
@@ -39,7 +40,23 @@ public class noticeController {
 	      if (user == null) {
 	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
 	      }
-	      
 	      return noticeService.getNoticeDetails(id);
+	}
+	
+	@GetMapping("/read/{userId}")
+	public NoticeRead[] getUnreadNotices(@PathVariable int userId, HttpSession session) {
+		User user = (User)session.getAttribute("user");
+		if (user == null) {
+	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+	      }
+		
+		NoticeRead[] reads = noticeService.getUnreadNotices(userId);
+		
+		for (NoticeRead noticeRead : reads) {
+			System.out.println("Read Message");
+			System.out.println(noticeRead);
+		}
+		
+		return noticeService.getUnreadNotices(userId);
 	}
 }

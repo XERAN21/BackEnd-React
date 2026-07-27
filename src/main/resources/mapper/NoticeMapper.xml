@@ -13,10 +13,10 @@
 		<result property="createdAt" column="created_at"/>
 		<result property="updatedAt" column="updated_at"/>
 	</resultMap>
-	<select id="findAll">
+	<select id="findAll" resultMap="Notice">
 		SELECT * FROM NOTICE
 	</select>
-	<select id="findById">
+	<select id="findById" resultMap="Notice">
 		SELECT * FROM NOTICE 
 		WHERE id = #{Id}
 	</select>
