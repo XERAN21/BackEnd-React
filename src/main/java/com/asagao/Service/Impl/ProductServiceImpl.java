@@ -75,7 +75,7 @@ public class ProductServiceImpl implements ProductService{
 			OrderDetail orderDetail = new OrderDetail();
 			orderDetail.setOrderId(order.getId());  
 			orderDetail.setProductId(cart.getProductId());
-			orderDetail.setAmount(cart.getPrice());
+			orderDetail.setAmount(cart.getAmount());
 			orderDetail.setCreatedAt(LocalDateTime.now());
 			orderDetail.setUpdatedAt(LocalDateTime.now());
 			System.out.println(cart);
