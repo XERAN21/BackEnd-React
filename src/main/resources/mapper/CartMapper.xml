@@ -11,6 +11,7 @@
 		<result column="amount" property="amount" />
 		<result column="price" property="price" />
 		<result column="name" property="productName" />
+		<result column="image_url" property="imageUrl"/>
 		<result column="created_at" property="createdAt" />
 		<result column="updated_at" property="updatedAt" />
 	</resultMap>
@@ -18,7 +19,8 @@
 		select
 		cart.*,
 		product.price,
-		product.name
+		product.name,
+		product.image_url
 		from cart inner join product on cart.product_id =
 		product.id
 		where cart.user_id = #{userId}
