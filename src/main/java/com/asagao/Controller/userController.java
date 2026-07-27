@@ -115,7 +115,12 @@ public class userController {
 		}
 
 		user.setId(id);
-		return userService.updateUser(user);
+		
+		User newUser = userService.updateUser(user);
+		
+		session.setAttribute("user", newUser);
+		
+		return newUser;
 	}
 	
 	
