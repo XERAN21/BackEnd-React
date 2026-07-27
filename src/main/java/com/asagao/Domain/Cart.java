@@ -12,6 +12,7 @@ public class Cart {
 	private Integer amount;
 	private Integer price;
 	private String productName;
+	private String imageUrl;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 }
