@@ -9,4 +9,8 @@ public interface NoticeMapper {
 	Notice[] findAll();
 	
 	Notice findById(int noticeId);
+	
+	int create(Notice notice);
+	//お知らせ編集
+	int update(Notice notice);
 }

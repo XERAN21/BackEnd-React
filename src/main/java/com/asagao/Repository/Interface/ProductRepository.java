@@ -12,9 +12,9 @@ public interface ProductRepository {
 	int delete(int id);
 	
 	
+	int insert(Product product);
 	
-	
-	
+	int update(Product product);
 	
 	
 	

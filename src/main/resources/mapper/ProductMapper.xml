@@ -45,5 +45,38 @@
 		DELETE FROM product
 		WHERE id = #{id}
 	</delete>
+<insert id="insert" parameterType="com.asagao.Domain.Product" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO product (
+		  name,
+		  description,
+		  price,
+		  image_url,
+		  color,
+		  delete_flg,
+		  created_at,
+		  updated_at
+		) VALUES (
+		  #{name},
+		  #{description},
+		  #{price},
+		  #{image_url},
+		  #{color},
+		  0,
+		  NOW(),
+		  NOW()
+		)
+	</insert>
 
+    
+    <update id="update">
+    	update product
+    	set
+	    	name = #{name},
+	    	description = #{description},
+	    	price = #{price},
+	    	image_url = #{image_url},
+	    	color = #{color}
+	    where
+	    	id = #{id}
+    </update>
 </mapper>
