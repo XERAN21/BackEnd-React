@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.asagao.Domain.Cart;
@@ -63,13 +64,18 @@ public class productController {
 	  }
 
 	@PutMapping("/{id}")
-	public int updateProduct(@PathVariable int id, @RequestBody Product product, HttpSession session) {
+	public int updateProduct(@PathVariable int id, Product product, HttpSession session) {
 	      User user = (User)session.getAttribute("user");
 	      if (user == null) {
 	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
 	      }
 	      product.setId(id);
-	      System.out.println(product);
+	      
+	      MultipartFile imageFile = product.getImage();
+	      if(imageFile != null && !imageFile.isEmpty()) {
+	    	  
+	      }
+	      
 	      return productService.updateProduct(product);
 	}
 	
