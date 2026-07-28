@@ -52,7 +52,15 @@ public class productController {
 	      productService.delete(id);
 	  }
 	
-	
+	@PostMapping
+	  public int create(@RequestBody Product product, HttpSession session) {
+	      User user = (User)session.getAttribute("user");
+	      if (user == null) {
+	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+	      }
+	      product.setId(user.getId());
+	      return productService.createProduct(product);
+	  }
 
 	
 	

@@ -45,5 +45,19 @@
 		DELETE FROM product
 		WHERE id = #{id}
 	</delete>
-
+<insert id="insert" useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO Product (
+        name,
+        description,
+        price,
+        image_url,
+        color
+    ) VALUES (
+        #{name}, 
+        #{description},
+        #{price},
+        #{image_url},
+        #{color}
+    )
+    </insert>
 </mapper>
