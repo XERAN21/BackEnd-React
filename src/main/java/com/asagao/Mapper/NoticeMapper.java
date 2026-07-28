@@ -13,4 +13,6 @@ public interface NoticeMapper {
 	int create(Notice notice);
 	//お知らせ編集
 	int update(Notice notice);
+	
+	void delete(int id);
 }
