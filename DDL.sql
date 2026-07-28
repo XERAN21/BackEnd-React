@@ -129,7 +129,14 @@ create table notice_read(
 insert into color(name)
 values
 ('赤'),
-('黄色');
+('黄色'),
+('青'),
+('ピンク'),
+('紫'),
+('白'),
+('オレンジ'),
+('緑'),
+('黒');
 
 -- product
 insert into product(name, description, price, image_url, color, delete_flg)

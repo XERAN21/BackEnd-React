@@ -14,7 +14,7 @@ public interface ProductRepository {
 	
 	int insert(Product product);
 	
-	
+	int update(Product product);
 	
 	
 	
