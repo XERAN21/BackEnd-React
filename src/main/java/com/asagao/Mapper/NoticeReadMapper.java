@@ -8,5 +8,7 @@ import com.asagao.Domain.NoticeRead;
 public interface NoticeReadMapper {
 	NoticeRead[] getAll(int userId);
 	
+	NoticeRead getById(int noticeId);
+	
 	int MarkRead(NoticeRead noticeRead);
 }
