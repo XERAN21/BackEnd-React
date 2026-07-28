@@ -69,8 +69,8 @@ public class productController {
 	      if (user == null) {
 	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
 	      }
-	      
 	      product.setId(id);
+	      System.out.println(product);
 	      return productService.updateProduct(product);
 	}
 	
