@@ -125,4 +125,9 @@ public class ProductServiceImpl implements ProductService{
     public int createProduct(Product product) {
         return productRepository.insert(product);
     }
+	
+	@Override
+	public int updateProduct(Product product) {
+		return productRepository.update(product);
+	}
 }
