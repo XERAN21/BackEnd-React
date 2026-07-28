@@ -60,4 +60,16 @@
         #{color}
     )
     </insert>
+    
+    <update id="update">
+    	update product
+    	set
+	    	name = #{name},
+	    	description = #{description},
+	    	price = #{price},
+	    	image_url = #{image_url},
+	    	color = #{color}
+	    where
+	    	id = #{id}
+    </update>
 </mapper>

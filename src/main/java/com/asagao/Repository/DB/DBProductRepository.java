@@ -40,6 +40,11 @@ public class DBProductRepository implements ProductRepository{
     public int insert(Product Product) {
         return ProductMapper.insert(Product);
     }
+	
+	@Override
+	public int update(Product product) {
+		return ProductMapper.update(product);
+	}
 }
 	
 	

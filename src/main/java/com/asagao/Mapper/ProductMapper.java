@@ -19,4 +19,6 @@ public interface ProductMapper {
 	int delete(@Param("id") int id);
 	
 	int insert(Product product);
+	
+	int update(Product product);
 }
