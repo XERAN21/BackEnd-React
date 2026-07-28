@@ -20,4 +20,13 @@
 		SELECT * FROM NOTICE 
 		WHERE id = #{Id}
 	</select>
+	
+	<update id="update" parameterType="com.asagao.Domain.Notice">
+	 	UPDATE notice
+	 	SET
+	 	  title = #{title},
+	 	  body = #{body},
+	 	WHERE
+	 	  id = #{id}  
+	</update>
 </mapper>

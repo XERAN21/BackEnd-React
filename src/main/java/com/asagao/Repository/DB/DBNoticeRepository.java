@@ -44,6 +44,18 @@ public class DBNoticeRepository implements NoticeRepository {
 	public int MarkRead(NoticeRead noticeRead) {
 		return noticeReadMapper.MarkRead(noticeRead);
 	}
+
+	//お知らせ編集
+	@Override
+	public Notice update(Notice notice) {
+		int updated = noticeMapper.update(notice);
+		 // もし更新件数が0なら、ここでエラー（例外）を投げる
+		if (updated == 0) {
+			throw new IllegalArgumentException("Notice not found. id=" + notice.getId());
+		}
+		// ② 更新が成功したので、マッパーから最新のデータを取得して返す
+		return noticeMapper.findById(notice.getId());
+	}
 	
 	
 

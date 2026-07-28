@@ -44,4 +44,10 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeRepository.MarkRead(noticeRead);
 	}
 
+	//お知らせ編集
+	@Override
+	public Notice updateNotice(Notice notice) {
+		return noticeRepository.update(notice);
+	}
+
 }
