@@ -12,5 +12,7 @@ public interface NoticeService {
 	
 	int MarkasRead(int noticeId,int userId);
 	
+	int CreateNotice(Notice notice);
+
 	Notice updateNotice(Notice notice);
 }

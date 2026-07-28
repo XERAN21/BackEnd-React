@@ -92,4 +92,15 @@ public class noticeController {
 		notice.setId(id);
 		return noticeService.updateNotice(notice);
 	}
+
+	@PostMapping("/new")
+	@ResponseStatus(HttpStatus.CREATED)
+	public void CreateNotice(@Valid @RequestBody Notice notice,HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		if (user == null && user.getRole() != 1) {
+			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
+		}
+		
+		noticeService.CreateNotice(notice);
+	}
 }

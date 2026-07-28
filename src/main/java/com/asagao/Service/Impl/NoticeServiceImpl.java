@@ -44,6 +44,15 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeRepository.MarkRead(noticeRead);
 	}
 
+	@Override
+	public int CreateNotice(Notice notice) {
+		
+		notice.setVisibilityFlag(1);
+		notice.setCreatedAt(LocalDateTime.now());
+		notice.setUpdatedAt(LocalDateTime.now());
+		return noticeRepository.create(notice);
+		
+	}
 	//お知らせ編集
 	@Override
 	public Notice updateNotice(Notice notice) {

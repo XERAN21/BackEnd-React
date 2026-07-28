@@ -20,6 +20,13 @@
 		SELECT * FROM NOTICE 
 		WHERE id = #{Id}
 	</select>
+
+	<insert id="create"  useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO 
+		NOTICE(TITLE,BODY,VISIBILITY_FLAG,DELETE_FLG,CREATED_AT,UPDATED_AT)
+		VALUES
+		(#{title},#{body},#{visibilityFlag},#{deleteFlg},#{createdAt},#{updatedAt})
+	</insert>
 	
 	<update id="update" parameterType="com.asagao.Domain.Notice">
 	 	UPDATE notice
