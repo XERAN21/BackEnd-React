@@ -26,6 +26,7 @@
 	<select id="getOrders" resultMap="Order">
 		select * from ORDERS
 		where user_id=#{userId}
+		order by id desc
 	</select>
 	<select id="getOrder" resultMap="Order">
 		select * from ORDERS
