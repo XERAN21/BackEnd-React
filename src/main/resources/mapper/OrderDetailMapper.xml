@@ -12,30 +12,35 @@
 		<result column="amount" property="amount" />
 		<result column="created_at" property="createdAt" />
 		<result column="updated_at" property="updatedAt" />
-		<result column="name" property="productName"/>
-		<result column="description" property="productDescription"/>
-		<result column="price" property="productPrice"/>
-		<result column="image_url" property="productImage_url"/>
+		<result column="product_name" property="productName" />
+		<result column="product_description"
+			property="productDescription" />
+		<result column="product_price" property="productPrice" />
+		<result column="product_image_url" property="productImage_url" />
 	</resultMap>
 	<insert id="create" useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO
-		ORDERS_DETAIL(ORDERS_ID,PRODUCT_ID,AMOUNT,CREATED_AT,UPDATED_AT)
+		INSERT
+		INTO
+		ORDERS_DETAIL(ORDERS_ID,PRODUCT_ID,AMOUNT,CREATED_AT,UPDATED_AT,
+		product_price,
+		product_name,
+		product_description,
+		product_image_url)
 		VALUES
-		(#{orderId},#{productId},#{amount},#{createdAt},#{updatedAt})
+		(#{orderId},#{productId},#{amount},#{createdAt},#{updatedAt},#{productPrice},#{productName},#{productDescription},#{productImage_url})
 	</insert>
 	<select id="getOderDetails" resultMap="OrderDetail">
-		select ORDERS_DETAIL.id ,
-		ORDERS_DETAIL.orders_id ,
-		ORDERS_DETAIL.product_id,
-		ORDERS_DETAIL.amount,
-		ORDERS_DETAIL.created_at,
-		ORDERS_DETAIL.updated_at,
-		product.price,
-		product.name,
-		product.description,
-		product.image_url
-		from ORDERS_DETAIL inner join product on ORDERS_DETAIL.product_id =
-		product.id
-		where orders_id =#{orderId}
+		select id ,
+		orders_id ,
+		product_id,
+		amount,
+		created_at,
+		updated_at,
+		product_price,
+		product_name,
+		product_description,
+		product_image_url
+		from ORDERS_DETAIL
+		where orders_id=#{orderId}
 	</select>
 </mapper>

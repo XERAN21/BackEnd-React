@@ -32,7 +32,7 @@
 	 	UPDATE notice
 	 	SET
 	 	  title = #{title},
-	 	  body = #{body},
+	 	  body = #{body}
 	 	WHERE
 	 	  id = #{id}  
 	</update>

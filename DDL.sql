@@ -85,15 +85,16 @@ create table orders_detail(
     id int auto_increment primary key,
     orders_id int not null,
     product_id int not null,
+    product_name varchar(40) not null,
+    product_description text,
+    product_price int not null,
+    product_image_url varchar(255),
     amount int,
     created_at timestamp not null default current_timestamp,
     updated_at timestamp not null default current_timestamp on update current_timestamp,
 
     constraint FK_ODETAIL_ORDERID foreign key (orders_id)
-        references orders(id) on update cascade on delete cascade,
-    
-    constraint FK_ODETAIL_PRODUCTID foreign key (product_id)
-        references product(id) on update cascade on delete cascade
+        references orders(id) on update cascade on delete cascade
 );
 
 -- お知らせ
