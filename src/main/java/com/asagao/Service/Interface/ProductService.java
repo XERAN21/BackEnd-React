@@ -2,6 +2,8 @@ package com.asagao.Service.Interface;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.asagao.Domain.Cart;
 import com.asagao.Domain.Order;
 import com.asagao.Domain.OrderDetail;
@@ -42,5 +44,7 @@ public interface ProductService {
 	int createProduct(Product product);
 	
 	int updateProduct(Product product);
+	
+	String saveImage(MultipartFile file);
 
 }

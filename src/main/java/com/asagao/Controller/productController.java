@@ -33,6 +33,7 @@ import lombok.RequiredArgsConstructor;
 public class productController {
 
 	private final ProductService productService;
+	
 
 	@GetMapping
 	public List<Product> getProducts(
@@ -62,13 +63,13 @@ public class productController {
 	  }
 
 	@PutMapping("/{id}")
-	public int updateProduct(@PathVariable int id, @RequestBody Product product, HttpSession session) {
+	public int updateProduct(@PathVariable int id, Product product, HttpSession session) {
 	      User user = (User)session.getAttribute("user");
 	      if (user == null) {
 	          throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
 	      }
+	      
 	      product.setId(id);
-	      System.out.println(product);
 	      return productService.updateProduct(product);
 	}
 	
