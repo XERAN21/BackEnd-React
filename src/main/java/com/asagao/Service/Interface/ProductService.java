@@ -38,5 +38,7 @@ public interface ProductService {
 	List<Order> getOrders(int userId);
 	
 	Order getOrder(int id);
+	
+	int createProduct(Product product);
 
 }
