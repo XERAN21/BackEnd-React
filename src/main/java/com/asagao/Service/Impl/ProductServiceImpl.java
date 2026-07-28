@@ -21,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductRepository productRepository;
@@ -65,16 +65,21 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	@Transactional
-	public int addOrder(Order order,Cart[] carts) {
+	public int addOrder(Order order, Cart[] carts) {
 		order.setCreatedAt(LocalDateTime.now());
 		order.setUpdatedAt(LocalDateTime.now());
 		orderRepository.create(order);
 		System.out.println(order.getSumPrice());
-		
-		for (Cart cart: carts) {
+
+		for (Cart cart : carts) {
 			OrderDetail orderDetail = new OrderDetail();
-			orderDetail.setOrderId(order.getId());  
+			Product product = productRepository.findById(cart.getProductId());
+			orderDetail.setOrderId(order.getId());
 			orderDetail.setProductId(cart.getProductId());
+			orderDetail.setProductName(product.getName());
+			orderDetail.setProductPrice(product.getPrice());
+			orderDetail.setProductImage_url(product.getImage_url());
+			orderDetail.setProductDescription(product.getDescription());
 			orderDetail.setAmount(cart.getAmount());
 			orderDetail.setCreatedAt(LocalDateTime.now());
 			orderDetail.setUpdatedAt(LocalDateTime.now());
@@ -84,20 +89,18 @@ public class ProductServiceImpl implements ProductService{
 		return 1;
 	}
 
-
-	
 	@Override
-    public void delete(int id) {
-        int deleted = productRepository.delete(id);
-        if (deleted == 0) {
-            throw new IllegalArgumentException("Product not found. id=" + id);
-        }
-    }
+	public void delete(int id) {
+		int deleted = productRepository.delete(id);
+		if (deleted == 0) {
+			throw new IllegalArgumentException("Product not found. id=" + id);
+		}
+	}
 
 	@Override
 	public void deleteCartByCartId(int id) {
 		cartRepository.deleteByCartId(id);
-		
+
 	}
 
 	@Override
@@ -121,8 +124,13 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-    @Transactional
-    public int createProduct(Product product) {
-        return productRepository.insert(product);
-    }
+	@Transactional
+	public int createProduct(Product product) {
+		return productRepository.insert(product);
+	}
+
+	@Override
+	public int updateProduct(Product product) {
+		return productRepository.update(product);
+	}
 }

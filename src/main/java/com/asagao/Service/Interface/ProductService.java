@@ -40,5 +40,7 @@ public interface ProductService {
 	Order getOrder(int id);
 	
 	int createProduct(Product product);
+	
+	int updateProduct(Product product);
 
 }
