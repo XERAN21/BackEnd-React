@@ -51,6 +51,12 @@ public class NoticeServiceImpl implements NoticeService {
 		notice.setCreatedAt(LocalDateTime.now());
 		notice.setUpdatedAt(LocalDateTime.now());
 		return noticeRepository.create(notice);
+		
+	}
+	//お知らせ編集
+	@Override
+	public Notice updateNotice(Notice notice) {
+		return noticeRepository.update(notice);
 	}
 
 }

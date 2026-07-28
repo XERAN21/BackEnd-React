@@ -16,17 +16,17 @@ public class DBNoticeRepository implements NoticeRepository {
 
 	private final NoticeMapper noticeMapper;
 	private final NoticeReadMapper noticeReadMapper;
-	
+
 	@Override
 	public Notice[] findAll() {
-		
+
 		Notice[] notices = noticeMapper.findAll();
-		
+
 		for (Notice notice : notices) {
 			System.out.println("From Repository:");
 			System.out.println(notice);
 		}
-		
+
 		return noticeMapper.findAll();
 	}
 
@@ -48,8 +48,19 @@ public class DBNoticeRepository implements NoticeRepository {
 	@Override
 	public int create(Notice notice) {
 		return noticeMapper.create(notice);
+
 	}
-	
-	
+
+	//お知らせ編集
+	@Override
+	public Notice update(Notice notice) {
+		int updated = noticeMapper.update(notice);
+		// もし更新件数が0なら、ここでエラー（例外）を投げる
+		if (updated == 0) {
+			throw new IllegalArgumentException("Notice not found. id=" + notice.getId());
+		}
+		// ② 更新が成功したので、マッパーから最新のデータを取得して返す
+		return noticeMapper.findById(notice.getId());
+	}
 
 }

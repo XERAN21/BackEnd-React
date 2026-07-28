@@ -35,6 +35,11 @@ public class DBProductRepository implements ProductRepository{
     public int delete(int id) {
         return ProductMapper.delete(id);
     }
+	
+	@Override
+    public int insert(Product Product) {
+        return ProductMapper.insert(Product);
+    }
 }
 	
 	

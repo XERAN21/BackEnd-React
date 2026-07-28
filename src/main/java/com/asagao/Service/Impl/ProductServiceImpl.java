@@ -120,4 +120,9 @@ public class ProductServiceImpl implements ProductService{
 		return orderRepository.getOrder(id);
 	}
 
+	@Override
+    @Transactional
+    public int createProduct(Product product) {
+        return productRepository.insert(product);
+    }
 }
