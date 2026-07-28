@@ -11,4 +11,6 @@ public interface NoticeRepository {
 	NoticeRead[] getAll(int userId);
 	
 	int MarkRead(NoticeRead noticeRead);
+	
+	int create(Notice notice);
 }

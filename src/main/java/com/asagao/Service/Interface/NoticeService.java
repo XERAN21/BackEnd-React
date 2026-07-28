@@ -11,4 +11,6 @@ public interface NoticeService {
 	NoticeRead[] getUnreadNotices(int userId);
 	
 	int MarkasRead(int noticeId,int userId);
+	
+	int CreateNotice(Notice notice);
 }

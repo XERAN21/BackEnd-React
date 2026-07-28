@@ -44,6 +44,11 @@ public class DBNoticeRepository implements NoticeRepository {
 	public int MarkRead(NoticeRead noticeRead) {
 		return noticeReadMapper.MarkRead(noticeRead);
 	}
+
+	@Override
+	public int create(Notice notice) {
+		return noticeMapper.create(notice);
+	}
 	
 	
 
