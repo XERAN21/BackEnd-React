@@ -1,11 +1,16 @@
 package com.asagao.Service.Impl;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.asagao.Domain.Cart;
 import com.asagao.Domain.Order;
@@ -28,6 +33,9 @@ public class ProductServiceImpl implements ProductService {
 	private final OrderRepository orderRepository;
 	private final OrderDetailRepository orderDetailRepository;
 	private final CartRepository cartRepository;
+	
+	//画像保存のためのやつ
+	private final String UPLOAD_DIR = System.getProperty("user.dir") + "/uploads/";
 
 	@Override
 	public List<Product> findAll(String name, String colorId) {
@@ -124,13 +132,57 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	@Transactional
-	public int createProduct(Product product) {
-		return productRepository.insert(product);
-	}
+    @Transactional
+    public int createProduct(Product product) {
+		
+		MultipartFile imageFile = product.getImage();
+		
+		if(imageFile != null && !imageFile.isEmpty()) {
+			String relativePath = saveImage(imageFile);
+			product.setImage_url(relativePath);
+		}else {
+			product.setImage_url(null);
+		}
+		
+        return productRepository.insert(product);
+    }
 
 	@Override
 	public int updateProduct(Product product) {
+		
+		Product existingProduct = productRepository.findById(product.getId());
+		MultipartFile imageFile = product.getImage();
+		
+		if(imageFile != null && !imageFile.isEmpty()) {
+			
+			String ralativePath = saveImage(imageFile);
+			product.setImage_url(ralativePath);
+		}else {
+			product.setImage_url(existingProduct.getImage_url());
+		}
+		
 		return productRepository.update(product);
 	}
+	
+	//画像保存処理
+	@Override
+	public String saveImage(MultipartFile file) {
+        try {
+            File dir = new File(UPLOAD_DIR);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+
+            String originalFilename = file.getOriginalFilename();
+            String savedFilename = UUID.randomUUID().toString() + "_" + originalFilename;
+
+            File destFile = new File(Paths.get(UPLOAD_DIR, savedFilename).toString());
+            file.transferTo(destFile);
+
+            return "/images/" + savedFilename;
+
+        } catch (IOException e) {
+            throw new RuntimeException("ファイルの保存に失敗しました", e);
+        }
+    }
 }

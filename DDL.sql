@@ -142,21 +142,21 @@ values
 -- product
 insert into product(name, description, price, image_url, color, delete_flg)
 values
-('商品1', '商品説明1', 1000, '/img/product1.jpg', 1, 0),
-('商品2', '商品説明2', 2000, '/img/product2.jpg', 1, 0),
-('商品3', '商品説明3', 3000, '/img/product3.jpg', 1, 0),
-('商品4', '季節の花を使ったミニブーケ', 1500, '/img/product4.jpg', 1, 0),
-('商品5', '人気のバラアレンジメント', 2500, '/img/product5.jpg', 1, 0),
-('商品6', '観葉植物（小サイズ）', 1800, '/img/product6.jpg', 1, 0),
-('商品7', '胡蝶蘭（ギフト用）', 12000, '/img/product7.jpg', 1, 0),
-('商品8', 'ドライフラワーセット', 2200, '/img/product8.jpg', 1, 0),
-('商品9', '花瓶付きフラワーセット', 3500, '/img/product9.jpg', 1, 0),
-('商品10', 'アロマフラワーキャンドル', 900, '/img/product10.jpg', 1, 0),
-('商品11', 'ラベンダーブーケ', 1300, '/img/product11.jpg', 1, 0),
-('商品12', '多肉植物アソート', 1600, '/img/product12.jpg', 1, 0),
-('商品13', 'ひまわりギフトセット', 2800, '/img/product13.jpg', 1, 0),
-('商品14', '季節限定フラワーボックス', 4200, '/img/product14.jpg', 1, 0),
-('商品15', 'プリザーブドフラワー（ピンク）', 3000, '/img/product15.jpg', 1, 0);
+('商品1', '商品説明1', 1000, '/images/product1.png', 1, 0),
+('商品2', '商品説明2', 2000, '/images/product2.png', 1, 0),
+('商品3', '商品説明3', 3000, '/images/product3.png', 1, 0),
+('商品4', '季節の花を使ったミニブーケ', 1500, '/images/product4.png', 1, 0),
+('商品5', '人気のバラアレンジメント', 2500, '/images/product5.png', 1, 0),
+('商品6', '観葉植物（小サイズ）', 1800, '/images/product6.png', 1, 0),
+('商品7', '胡蝶蘭（ギフト用）', 12000, '/images/product7.png', 1, 0),
+('商品8', 'ドライフラワーセット', 2200, '/images/product8.png', 1, 0),
+('商品9', '花瓶付きフラワーセット', 3500, '/images/product9.png', 1, 0),
+('商品10', 'アロマフラワーキャンドル', 900, '/images/product10.png', 1, 0),
+('商品11', 'ラベンダーブーケ', 1300, '/images/product11.png', 1, 0),
+('商品12', '多肉植物アソート', 1600, '/images/product12.png', 1, 0),
+('商品13', 'ひまわりギフトセット', 2800, '/images/product13.png', 1, 0),
+('商品14', '季節限定フラワーボックス', 4200, '/images/product14.png', 1, 0),
+('商品15', 'プリザーブドフラワー（ピンク）', 3000, '/images/product15.png', 1, 0);
 
 -- user
 insert into user(email, password, role, last_name, first_name, post_number, address, tel_number) 
