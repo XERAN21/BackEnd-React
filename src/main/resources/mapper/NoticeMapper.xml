@@ -14,7 +14,7 @@
 		<result property="updatedAt" column="updated_at"/>
 	</resultMap>
 	<select id="findAll" resultMap="Notice">
-		SELECT * FROM NOTICE ORDER BY CREATED_AT ASC;
+		SELECT * FROM NOTICE ORDER BY CREATED_AT DESC;
 	</select>
 	<select id="findById" resultMap="Notice">
 		SELECT * FROM NOTICE 
