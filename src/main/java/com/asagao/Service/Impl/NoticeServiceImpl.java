@@ -59,4 +59,9 @@ public class NoticeServiceImpl implements NoticeService {
 		return noticeRepository.update(notice);
 	}
 
+	@Override
+	public void delete(int id) {
+		noticeRepository.delete(id);
+	}
+
 }

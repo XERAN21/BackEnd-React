@@ -36,4 +36,8 @@
 	 	WHERE
 	 	  id = #{id}  
 	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM notice
+		WHERE id = #{id}
+	</delete>
 </mapper>
