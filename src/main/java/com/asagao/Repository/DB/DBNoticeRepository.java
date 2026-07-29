@@ -63,4 +63,10 @@ public class DBNoticeRepository implements NoticeRepository {
 		return noticeMapper.findById(notice.getId());
 	}
 
+	@Override
+	public void delete(int id) {
+		noticeMapper.delete(id);
+		
+	}
+
 }

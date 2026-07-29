@@ -15,4 +15,6 @@ public interface NoticeRepository {
 	int create(Notice notice);
 	//お知らせ編集
 	Notice update(Notice notice);
+	
+	void delete(int id);
 }
