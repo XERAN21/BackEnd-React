@@ -118,10 +118,6 @@ public class productController {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
 		}
 		if (user.getId() != productService.getCartById(id).getUserId()) {
-			System.out.println(user.getId());
-			System.out.println(productService.getCartById(id).getUserId());
-			System.out.println(productService.getCartById(id));
-			System.out.println(id);
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Authentication required");
 		}
 
